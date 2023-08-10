@@ -583,11 +583,17 @@ section {
 }
 
 .izguimg {
-  height: 115%;
+  height: 100%;
   width: 115%;
   margin-left: -10%;
-  margin-top: -20%;
+  margin-top: -12%;
 }
+
+.helloimg {
+  height: 30%;
+  width: 90%;
+}
+
 
 .row {
   background-color: white;
@@ -608,7 +614,7 @@ section {
 .abdescsign {
   margin: 5%;
   color: #0b0754;
-  font-family: monospace;
+  font-family: "Cormorant", garamond;
   text-align: right;
 }
 
