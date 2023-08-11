@@ -210,6 +210,20 @@ h6 {
   position: relative;
 }
 
+.livenav a,
+.livenav a:focus {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Raleway", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: white;
+  white-space: nowrap;
+  transition: 0.3s;
+  position: relative;
+}
+
 .homenav a,
 .homenav a:focus {
   display: flex;
@@ -276,6 +290,13 @@ h6 {
 .wordsnav .active,
 .wordsnav .active:focus,
 .wordsnav li:hover>a {
+  color: #61acf2;
+}
+
+.livenav a:hover,
+.livenav .active,
+.livenav .active:focus,
+.livenav li:hover>a {
   color: #61acf2;
 }
 
@@ -496,6 +517,10 @@ h6 {
 
 }
 
+.livebg {
+  background-color: #2c4b73;
+}
+
 .bloverlay {
   background-color: black;
 }
@@ -594,6 +619,10 @@ section {
   width: 90%;
 }
 
+.comingsoonimg {
+  height: 100%;
+  width: 100%;
+}
 
 .row {
   background-color: white;
