@@ -149,7 +149,7 @@ h6 {
 }
 
 .header-social-links a {
-  color: #6f6f6f;
+  color: white;
   padding-left: 6px;
   display: inline-block;
   line-height: 0px;
@@ -376,15 +376,24 @@ h6 {
 }
 
 .mobile-nav-toggle.bi-x {
-  color: #fff;
-}
-
-.bi {
   color: white;
 }
 
-.bi:hover {
+.home-bi {
+  color: white;
+}
+
+.words-bi {
+  color: black;
+}
+
+.home-bi:hover {
   color: #d7b6c2;
+  transition: all 0.3s ease-in-out 0s
+}
+
+.words-bi:hover {
+  color: #47aeff;
   transition: all 0.3s ease-in-out 0s
 }
 
@@ -440,7 +449,7 @@ h6 {
 .navbar-mobile a:hover,
 .navbar-mobile .active,
 .navbar-mobile li:hover>a {
-  color: #34b7a7;
+  color: #47aeff;
 }
 
 .navbar-mobile .getstarted,
