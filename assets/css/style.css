@@ -1,12 +1,14 @@
 html {
+  height: 100%;
   overflow-x: hidden;
 }
 
 body {
   font-family: "Open Sans", sans-serif;
-  color: #444444;
+  height: 100%;
+  margin: 0;
+  padding: 0;
   overflow-x: hidden;
-  overflow-y: hidden;
 }
 
 a {
@@ -212,7 +214,9 @@ h6 {
   transition: 0.3s;
   position: relative;
 }
-
+.homenav {
+  margin-left: 0%;
+}
 .homenav a,
 .homenav a:focus {
   display: flex;
@@ -272,7 +276,7 @@ h6 {
 .homenav .active,
 .homenav .active:focus,
 .homenav li:hover>a {
-  color: #d7b6c2;
+  color: #662e1c;
 }
 
 .wordsnav a:hover,
@@ -496,9 +500,19 @@ h6 {
 --------------------------------------------------------------*/
 .izpic {
   width: 100%;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.6) url("../img/hero-bg.jpg");
+  height: 110%;
+  background: rgba(0, 0, 0, 0.9) url("../img/hero-bg.jpg");
   background-size: cover;
+}
+
+.IzNameimg {
+  transform: scale(8); /* Adjust the scale factor as needed */
+  margin-left: 400%;
+  margin-top: 100%;
+}
+
+.logo {
+  
 }
 
 .indexrow {
