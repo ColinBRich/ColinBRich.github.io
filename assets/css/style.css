@@ -12,12 +12,12 @@ body {
 }
 
 a {
-  color: #61acf2;
+  color: #94aec8;
   text-decoration: none;
 }
 
 a:hover {
-  color: #61acf2;
+  color: #94aec8;
   text-decoration: none;
 }
 
@@ -59,7 +59,7 @@ h6 {
   position: fixed;
   top: calc(50% - 30px);
   left: calc(50% - 30px);
-  border: 6px solid #61acf2;
+  border: 6px solid #94aec8;
   border-top-color: #dcf5f2;
   border-radius: 50%;
   width: 60px;
@@ -87,7 +87,7 @@ h6 {
   right: 15px;
   bottom: 15px;
   z-index: 996;
-  background: #61acf2;
+  background: #94aec8;
   width: 40px;
   height: 40px;
   border-radius: 50px;
@@ -101,7 +101,7 @@ h6 {
 }
 
 .back-to-top:hover {
-  background: #61acf2;
+  background: #94aec8;
   color: #fff;
 }
 
@@ -160,7 +160,7 @@ h6 {
 }
 
 .header-social-links a:hover {
-  color: #61acf2;
+  color: #94aec8;
 }
 
 /*--------------------------------------------------------------
@@ -231,6 +231,23 @@ h6 {
   position: relative;
 }
 
+.musicnav {
+  margin-left: 0%;
+}
+.musicnav a,
+.musicnav a:focus {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Raleway", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: white;
+  white-space: nowrap;
+  transition: 0.3s;
+  position: relative;
+}
+
 .aboutnav a,
 .aboutnav a:focus {
   display: flex;
@@ -259,7 +276,7 @@ h6 {
   height: 2px;
   bottom: -5px;
   left: 0;
-  background-color: #61acf2;
+  background-color: #94aec8;
   visibility: hidden;
   width: 0px;
   transition: all 0.3s ease-in-out 0s;
@@ -279,18 +296,26 @@ h6 {
   color: #662e1c;
 }
 
+
+.musicnav a:hover,
+.musicnav .active,
+.musicnav .active:focus,
+.musicnav li:hover>a {
+  color: #94aec8;
+}
+
 .wordsnav a:hover,
 .wordsnav .active,
 .wordsnav .active:focus,
 .wordsnav li:hover>a {
-  color: #61acf2;
+  color: #94aec8;
 }
 
 .livenav a:hover,
 .livenav .active,
 .livenav .active:focus,
 .livenav li:hover>a {
-  color: #61acf2;
+  color: #94aec8;
 }
 
 .aboutnav a:hover,
@@ -755,8 +780,8 @@ section {
   margin-left: 5%;
 }
 
-.musicbody {
-  
+.musichdbg {
+  background-color: black;
 }
 
 .IzMusicVid {
