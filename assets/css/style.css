@@ -552,7 +552,7 @@ h6 {
     transform: scale(3); /* Adjust the scale factor as needed */
     margin-left: 100%;
   }
-
+}
   @media (max-width: 350px) {
 
     .IzNameimg {
@@ -560,7 +560,7 @@ h6 {
       margin-left: 50%;
     }
 
-}
+  }
 
 .indexrow {
   background: linear-gradient(0deg, rgba(39,139,198,1) 1%, rgba(75,153,200,1) 25%, rgba(106,164,198,1) 37%, rgba(118,187,228,1) 69%, rgba(140,200,240,1) 85%, rgba(166,217,255,1) 99%, rgba(0,0,0,1) 100%);
