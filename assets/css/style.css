@@ -802,6 +802,13 @@ section {
   margin-left: 5%;
 }
 
+@media (max-width: 767px) {
+  .izperformance {
+    padding: 5%;
+    margin-left: 0%;
+  }
+}
+
 .musichdbg {
   background-color: black;
 }
