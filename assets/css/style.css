@@ -293,7 +293,7 @@ h6 {
 .homenav .active,
 .homenav .active:focus,
 .homenav li:hover>a {
-  color: #662e1c;
+  color: #47aeff;;
 }
 
 
@@ -525,9 +525,9 @@ h6 {
 --------------------------------------------------------------*/
 .izpic {
   width: 100%;
-  height: 110%;
+  height: 100%;
   background: rgba(0, 0, 0, 0.9) url("../img/hero-bg.jpg");
-  background-size: cover;
+  background-size: 34%;
 }
 
 .IzNameimg {
@@ -544,15 +544,60 @@ h6 {
     margin-top: 70%;
   }
 
+  .izpic {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9) url("../img/hero-bg.jpg");
+    background-size: 50%;
+  }
+
 }
 
-@media (max-width: 500px) {
+@media (max-width: 900px) {
+
+  .izpic {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9) url("../img/hero-bg.jpg");
+    background-size: 100%;
+  }
+}
+
+@media (max-width: 540px) {
 
   .IzNameimg {
     transform: scale(3); /* Adjust the scale factor as needed */
     margin-left: 100%;
   }
+
+  .izpic {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9) url("../img/hero-bg.jpg");
+    background-size: 120%;
+  }
 }
+
+@media (max-width: 450px) {
+
+  .izpic {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9) url("../img/hero-bg.jpg");
+    background-size: 130%;
+  }
+}
+
+@media (max-width: 400px) {
+
+  .izpic {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9) url("../img/hero-bg.jpg");
+    background-size: 150%;
+  }
+}
+
   @media (max-width: 350px) {
 
     .IzNameimg {
