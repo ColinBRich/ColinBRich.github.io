@@ -9,6 +9,9 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  /*background-color: rgba(186,85,211, 0.9);*/
+  background: rgba(0, 0, 0, 0.9) url("../img/IMG_6548_copy.PNG");
+  background-size: 100%;
 }
 
 a {
@@ -127,6 +130,7 @@ h6 {
   font-weight: 400;
   letter-spacing: 2px;
   text-transform: uppercase;
+  position: relative;
 }
 
 #header .logo a {
@@ -135,7 +139,38 @@ h6 {
 
 #header .logo img {
   max-height: 40px;
+  transform: scale(8);
+  transition: transform 0.3s ease-in-out;
+  will-change: transform;
 }
+
+#header .logo img:hover {
+  transform: scale(9) translateY(-1px);
+  
+}
+
+#header .logo a::after {
+  content: 'home'; /* Tooltip text */
+  position: absolute;
+  top: 10%;
+  left: 700%;
+  transform: translateX(-50%);
+  padding: 4px 8px;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #000;
+  font-size: 9px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 999;
+}
+
+#header .logo a:hover::after {
+  opacity: 1;
+}
+
 
 @media (max-width: 992px) {
   #header .logo {
@@ -160,8 +195,87 @@ h6 {
 }
 
 .header-social-links a:hover {
-  color: #94aec8;
+  color: #671f6a;
 }
+
+/*--------------------------------------------------------------
+# Carousel Styling
+--------------------------------------------------------------*/
+/*
+#albumCarousel img,
+#posters img {
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  margin-top: 2rem;
+}
+
+#albumCarousel img:hover,
+#posters img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+}
+*/
+
+/* Album Carousel Styles */
+.scroll-carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 20px 0;
+  scroll-behavior: smooth;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+}
+
+.album-wrapper {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+  transition: transform 0.5s ease, opacity 0.5s ease, filter 0.5s ease;
+  transform: scale(0.9);
+  opacity: 0.4;
+  filter: brightness(80%);
+  text-align: center;
+}
+
+.album-wrapper.active {
+  transform: scale(1.1);
+  opacity: 1;
+  filter: brightness(100%);
+}
+
+.album-cover {
+  max-height: 300px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+.album-name {
+  max-height: 60px;
+  display: block;
+  margin: 20px auto 0;
+}
+
+/* Posters Section Styles */
+#posters .poster {
+  /*background-color: #fff; */ /* Optional: a different background */
+  padding: 60px 0;
+}
+
+#posters img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+#posters .btn {
+  margin-top: 10px;
+  font-weight: bolder;
+}
+
 
 /*--------------------------------------------------------------
 # Navigation Menu
@@ -171,7 +285,7 @@ h6 {
 */
 .navbar {
   padding: 0;
-  margin-left: 33%;
+  margin-left: 0%;
 }
 
 .navbar ul {
@@ -186,7 +300,9 @@ h6 {
   position: relative;
   padding: 10px 0 10px 28px;
 }
-
+.wordsnav {
+  margin-left: 0%;
+}
 .wordsnav a,
 .wordsnav a:focus {
   display: flex;
@@ -195,12 +311,14 @@ h6 {
   font-family: "Raleway", sans-serif;
   font-size: 15px;
   font-weight: 600;
-  color: black;
+  color: white;
   white-space: nowrap;
   transition: 0.3s;
   position: relative;
 }
-
+.livenav {
+  margin-left: 0%;
+}
 .livenav a,
 .livenav a:focus {
   display: flex;
@@ -276,7 +394,8 @@ h6 {
   height: 2px;
   bottom: -5px;
   left: 0;
-  background-color: #94aec8;
+  background-color: #962299;
+  /*background-color: #94aec8;*/
   visibility: hidden;
   width: 0px;
   transition: all 0.3s ease-in-out 0s;
@@ -293,7 +412,8 @@ h6 {
 .homenav .active,
 .homenav .active:focus,
 .homenav li:hover>a {
-  color: #47aeff;;
+  /*color: #47aeff;*/
+  color: #671f6a;
 }
 
 
@@ -301,21 +421,24 @@ h6 {
 .musicnav .active,
 .musicnav .active:focus,
 .musicnav li:hover>a {
-  color: #94aec8;
+  /*color: #47aeff;*/
+  color: #671f6a;
 }
 
 .wordsnav a:hover,
 .wordsnav .active,
 .wordsnav .active:focus,
 .wordsnav li:hover>a {
-  color: #94aec8;
+  /*color: #47aeff;*/
+  color: #671f6a;
 }
 
 .livenav a:hover,
 .livenav .active,
 .livenav .active:focus,
 .livenav li:hover>a {
-  color: #94aec8;
+  /*color: #47aeff;*/
+  color: #671f6a;
 }
 
 .aboutnav a:hover,
@@ -417,12 +540,13 @@ h6 {
 }
 
 .home-bi:hover {
-  color: #d7b6c2;
+  color: #80518a;
   transition: all 0.3s ease-in-out 0s
 }
 
 .words-bi:hover {
-  color: #47aeff;
+  /*color: #47aeff;*/
+  color: #671f6a;
   transition: all 0.3s ease-in-out 0s
 }
 
@@ -478,7 +602,8 @@ h6 {
 .navbar-mobile a:hover,
 .navbar-mobile .active,
 .navbar-mobile li:hover>a {
-  color: #47aeff;
+  /*color: #47aeff;*/
+  color: #671f6a;
 }
 
 .navbar-mobile .getstarted,
@@ -526,9 +651,11 @@ h6 {
 .izpic {
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.9) url("../img/hero-bg.jpg");
-  /*background: rgba(0, 0, 0, 0.9) url("../img/IzGrassED.jpg");*/
-  background-size: 34%;
+  /*background: rgba(0, 0, 0, 0.9) url("../img/hero-bg.jpg");*/
+  background: rgba(0, 0, 0, 0.9) url("../img/IMG_6548.PNG");
+  /*background: rgba(186,85,211, 0.9);*/
+  background-size: 100%;
+  padding-bottom: 3rem;
 }
 
 .IzNameimg {
@@ -548,7 +675,9 @@ h6 {
   .izpic {
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.9) url("../img/hero-bg.jpg");
+    /*background: rgba(0, 0, 0, 0.9) url("../img/hero-bg.jpg");*/
+    background: rgba(0, 0, 0, 0.9) url("../img/ColorBackground\(Skeptic\).jpeg");
+    /*background: rgba(186,85,211, 0.9);*/
     background-size: 50%;
   }
 
@@ -627,11 +756,13 @@ h6 {
 }
 
 .bloverlay {
-  background-color: black;
+  /*background-color: rgba(186,85,211, 0.9);*/
+  background: rgba(0, 0, 0, 0.9) url("../img/IMG_6548.PNG");
+  background-size: 100%;
 }
 
 #hero .container {
-  padding-top: 70px;
+  /*padding-top: 70px;*/
   position: relative;
 }
 
@@ -860,7 +991,6 @@ section {
 }
 
 .IzMusicVid {
-
 }
 
 /*--------------------------------------------------------------

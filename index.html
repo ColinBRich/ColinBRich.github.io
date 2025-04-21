@@ -36,18 +36,20 @@
     <header id="header">
       <div class="container-fluid d-flex justify-content-between align-items-center">
         <div class="logo">
-          <img class="IzNameimg" src="assets/img/IzName.png" alt="Logo">
+          <a href="index.html">
+            <img class="IzNameimg" src="assets/img/IzName.png" alt="Logo">
+          </a>
       </div>
       <!-- End Logo -->
         <nav id="navbar" class="homenav navbar order-last order-lg-0">
 
           <ul>
-            <li><a class="active" href="index.html">home</a></li>
-            <li><a href="music.html">music</a></li>
-            <li><a href="merch.html">merch</a></li>
-            <li><a href="live.html">live</a></li>
-            <li><a href="https://linktr.ee/izzyarthursmusic" target="_blank">contact</a></li>
-            <li><a href="words.html">words</a></li>
+            <!--<li><a class="active" href="index.html">home</a></li>-->
+            <li><a href="music.html">MUSIC</a></li>
+            <li><a href="merch.html">MERCH</a></li>
+            <li><a href="live.html">LIVE</a></li>
+            <li><a href="https://linktr.ee/izzyarthursmusic" target="_blank">CONTACT</a></li>
+            <li><a href="words.html">WORDS</a></li>
           </ul>
           <i class="home-bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
@@ -55,7 +57,7 @@
         <div class="header-social-links">
           <a href="https://www.instagram.com/izzyarthursmusic/" class="instagram"><i class="home-bi bi-instagram"></i></a>
           <a href="https://www.youtube.com/@izzyarthurs" class="youtube"><i class="home-bi bi-youtube"></i></a>
-          <a href="https://pin.it/141Y6OV" class="pinterest"><i class="home-bi bi-pinterest"></i></a>
+          <a href="https://www.facebook.com/share/1AJ532xJxM/?mibextid=wwXIfr" class="facebook"><i class="home-bi bi-facebook"></i></a>
         </div>
   
       </div>
@@ -68,6 +70,22 @@
       </div>
     </section>
     <!-- End Hero -->
+    <div id="albumCarouselScroll" class="scroll-carousel">
+      <div class="album-wrapper" data-index="0">
+        <img src="assets/img/CRYSTAL_ANCHOR_IMAGE_FINAL.png" class="album-cover" alt="Crystal">
+        <!--<img src="assets/img/albums/album2-name.png" class="album-name" alt="Crystal Name">-->
+      </div>
+      <div class="album-wrapper active" data-index="1">
+        <img src="assets/img/THE_SKEPTIC_ANCHOR_IMAGE_FINAL.png" class="album-cover" alt="The Skeptic">
+        <img src="assets/img/THE_SKEPTIC_LOGO_WHITE.png" class="album-name" alt="Skeptic Name">
+      </div>
+      <div class="album-wrapper" data-index="2">
+        <img src="assets/img/ORBITING_ANCHOR_IMAGE_FINAL.png" class="album-cover" alt="Orbiting">
+        <!--<img src="assets/img/albums/album3-name.png" class="album-name" alt="Orbiting Name">-->
+      </div>
+    </div>    
+      <!-- more album-wrapper divs -->
+    </div>           
     <!--svg filter-->
     <svg width='0' height='0'>
       <filter id='grainy' x='0' y='0' width='100%' height='100%'>
@@ -78,6 +96,34 @@
     </svg>
     <!--end svg filter-->
   </div>
+<!--
+  <section class="container text-center my-5" id="posters">
+    <div class="row">
+      <div class="col-md-6">
+        <img src="assets/img/PROUD_LARRY'S_4_22_POSTER.PNG" class="img-fluid mb-2" alt="Poster 1">
+        <a href="https://wl.seetickets.us/event/izzy-arthurs/645104?afflky=ProudLarrys" class="btn btn-outline-dark" target="_blank">Buy Tickets</a>
+      </div>
+      <div class="col-md-6">
+        <img src="assets/img/THE_POWERHOUSE_POSTER.jpeg" class="img-fluid mb-2" alt="Poster 2">
+      </div>
+    </div>
+  </section>
+-->
+  <!-- Posters Section -->
+  <section id="posters" class="text-center">
+    <div class="container">
+      <div class="poster">
+        <img src="assets/img/PROUD_LARRY'S_4_22_POSTER.PNG" alt="Poster 1" class="img-fluid">
+        <a href="https://wl.seetickets.us/event/izzy-arthurs/645104?afflky=ProudLarrys" class="btn btn-outline-dark mt-3">Buy Tickets</a>
+      </div>
+
+      <div class="poster mt-5">
+        <img src="assets/img/THE_POWERHOUSE_POSTER.jpeg" alt="Poster 2" class="img-fluid">
+        <!-- Optional: no button for second one -->
+      </div>
+    </div>
+  </section>
+  
   <!-- About Me -->
 
   <!-- End About Me -->
@@ -96,5 +142,62 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 </body>
+
+<!--
+<script>
+  const carousel = document.getElementById('albumCarouselScroll');
+  const albums = carousel.querySelectorAll('.album-wrapper');
+  let currentIndex = 1; // Start with "The Skeptic" as the center/active album
+
+  function updateActive() {
+    albums.forEach((el, i) => {
+      el.classList.toggle('active', i === currentIndex); // Toggle 'active' class
+    });
+
+    const el = albums[currentIndex];
+    const offsetLeft = el.offsetLeft;
+    const carouselWidth = carousel.offsetWidth;
+    const elWidth = el.offsetWidth;
+
+    // Scroll horizontally to center the active item
+    carousel.scrollTo({
+      left: offsetLeft - (carouselWidth / 2) + (elWidth / 2),
+      behavior: 'smooth'
+    });
+  }
+
+  function scrollHandler(e) {
+    e.preventDefault(); // Prevent default scrolling action
+
+    if (e.deltaY > 0 && currentIndex < albums.length - 1) {
+      currentIndex++; // Scroll right
+    } else if (e.deltaY < 0 && currentIndex > 0) {
+      currentIndex--; // Scroll left
+    }
+
+    updateActive(); // Update the active album after scrolling
+  }
+
+  // Mouse scroll event listener
+  carousel.addEventListener('wheel', scrollHandler, { passive: false });
+
+  // Keyboard navigation (left and right arrows)
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' && currentIndex < albums.length - 1) {
+      currentIndex++;
+      updateActive();
+    }
+    if (e.key === 'ArrowLeft' && currentIndex > 0) {
+      currentIndex--;
+      updateActive();
+    }
+  });
+
+  // Call updateActive initially to set the center/active item
+  updateActive();
+</script>
+-->
+
+
 
 </html>
