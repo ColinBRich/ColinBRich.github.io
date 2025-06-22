@@ -25,39 +25,55 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 </head>
+<style>
+  .coming-soon-container {
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black; /* Optional: sets background */
+  text-align: center;
+  }
 
+  .coming-soon-text {
+    color: white;
+    font-weight: bold;
+    font-size: 2rem;
+  }
+</style>
 <body>
 
   <!-- ======= Header ======= -->
-  <header id="header">
+  <header id="header" class="fixed w-full z-50 bg-opacity-80 backdrop-blur-md bg-black">
     <div class="container-fluid d-flex justify-content-between align-items-center">
       <div class="logo">
         <a href="index.html">
           <img class="IzNameimg" src="assets/img/IzName.png" alt="Logo">
         </a>
       </div>
-
-      <nav id="navbar" class="wordsnav navbar order-last order-lg-0">
+    <!-- End Logo -->
+      <nav id="navbar" class="homenav navbar order-last order-lg-0">
+  
         <ul>
-              <!--<li><a href="index.html">home</a></li>-->
-              <li><a href="music.html">MUSIC</a></li>
+          <!--<li><a class="active" href="index.html">home</a></li>-->
+          <li><a href="music.html">MUSIC</a></li>
           <li><a class="active" href="merch.html">MERCH</a></li>
-          <li><a href="live.html">LIVE</a></li>
-          <li><a href="https://linktr.ee/izzyarthursmusic" target="_blank">CONTACT</a></li>
-          <li><a href="words.html">WORDS</a></li>
+          <li><a href="live.html">TOUR</a></li>
+          <li><a href="https://linktr.ee/izzyarthursmusic" target="_blank">ARCHIVE</a></li>
+          <li><a href="words.html">LYRICS</a></li>
         </ul>
-        <i class="words-bi bi-list mobile-nav-toggle"></i>
+        <i class="home-bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
-
+  
       <div class="header-social-links">
-        <a href="https://www.instagram.com/izzyarthursmusic/" class="instagram"><i class="words-bi bi-instagram"></i></a>
-        <a href="https://www.youtube.com/@izzyarthurs" class="youtube"><i class="words-bi bi-youtube"></i></a>
+        <a href="https://www.instagram.com/izzyarthursmusic/" class="instagram"><i class="home-bi bi-instagram"></i></a>
+        <a href="https://www.youtube.com/@izzyarthurs" class="youtube"><i class="home-bi bi-youtube"></i></a>
         <a href="https://www.facebook.com/share/1AJ532xJxM/?mibextid=wwXIfr" class="facebook"><i class="home-bi bi-facebook"></i></a>
-
+        <a href="#" class="spotify"><i class="home-bi bi-spotify"></i></a>
       </div>
-
+  
     </div>
-
+  
   </header>
   <!-- End Header -->
   <div id="preloader"></div>
@@ -76,8 +92,11 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-<br><br>
-<img class="comingsoonimg" src="assets/img/Coming Soon.png" alt="">
+  <br><br>
+  <!--<img class="comingsoonimg" src="assets/img/Coming Soon.png" alt="">-->
+  <div class="coming-soon-container">
+    <h1 class="coming-soon-text">Coming Soon</h1>
+  </div>
 </body>
 
 </html>

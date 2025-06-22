@@ -10,7 +10,7 @@ body {
   padding: 0;
   overflow-x: hidden;
   /*background-color: rgba(186,85,211, 0.9);*/
-  background: rgba(0, 0, 0, 0.9) url("../img/IMG_6548_copy.PNG");
+  background: rgb(0, 0, 0);
   background-size: 100%;
 }
 
@@ -139,21 +139,21 @@ h6 {
 
 #header .logo img {
   max-height: 40px;
-  transform: scale(8);
+  transform: scale(5);
   transition: transform 0.3s ease-in-out;
   will-change: transform;
 }
 
 #header .logo img:hover {
-  transform: scale(9) translateY(-1px);
+  transform: scale(6) translateY(-1px);
   
 }
 
 #header .logo a::after {
   content: 'home'; /* Tooltip text */
   position: absolute;
-  top: 10%;
-  left: 700%;
+  top: 5%;
+  left: 600%;
   transform: translateX(-50%);
   padding: 4px 8px;
   background-color: rgba(255, 255, 255, 0.9);
@@ -182,20 +182,41 @@ h6 {
 # Header Social Links
 --------------------------------------------------------------*/
 .header-social-links {
-  padding-right: 15px;
+  padding-right: 20px;
 }
 
 .header-social-links a {
   color: white;
-  padding-left: 6px;
+  padding-left: 8px;
   display: inline-block;
   line-height: 0px;
   transition: 0.3s;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .header-social-links a:hover {
   color: #671f6a;
+}
+
+.social-icon {
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.2);
+}
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+/* Contact Modal Animation */
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-content {
+  animation: modalFadeIn 0.3s ease-out;
 }
 
 /*--------------------------------------------------------------
@@ -217,7 +238,62 @@ h6 {
 }
 */
 
+.album-carousel {
+  position: relative;
+  perspective: 1000px;
+  width: 100%;
+
+}
+
+.album {
+  transition: all 0.8s ease;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.album.active {
+  z-index: 10;
+  transform: translateX(0) scale(1);
+  opacity: 1;
+}
+
+.album.prev {
+  transform: translateX(-50%) scale(0.8);
+  opacity: 0.7;
+  z-index: 5;
+}
+
+.album.next {
+  transform: translateX(50%) scale(0.8);
+  opacity: 0.7;
+  z-index: 5;
+}
+
+.album.hidden {
+  transform: translateX(100%) scale(0.5);
+  opacity: 0;
+  z-index: 1;
+}
+
+.nav-arrow {
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.2); /* semi-transparent white */
+  backdrop-filter: blur(6px); /* glass blur effect */
+  z-index: 30;
+}
+
+.nav-arrow:hover {
+  transform: scale(1.2);
+}
+
+.content-fade {
+  animation: fadeIn 1s ease-in-out;
+}
+
 /* Album Carousel Styles */
+/*
 .scroll-carousel {
   display: flex;
   overflow-x: auto;
@@ -244,16 +320,17 @@ h6 {
   opacity: 1;
   filter: brightness(100%);
 }
+*/
 
 .album-cover {
-  max-height: 300px;
+  max-height: 330px;
   display: block;
   margin: 0 auto;
   border-radius: 10px;
 }
 
 .album-name {
-  max-height: 60px;
+  max-height: 90px;
   display: block;
   margin: 20px auto 0;
 }
@@ -285,7 +362,7 @@ h6 {
 */
 .navbar {
   padding: 0;
-  margin-left: 0%;
+  margin-left: 5%;
 }
 
 .navbar ul {
@@ -301,7 +378,7 @@ h6 {
   padding: 10px 0 10px 28px;
 }
 .wordsnav {
-  margin-left: 0%;
+  margin-left: 5%;
 }
 .wordsnav a,
 .wordsnav a:focus {
@@ -309,7 +386,7 @@ h6 {
   align-items: center;
   justify-content: space-between;
   font-family: "Raleway", sans-serif;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 600;
   color: white;
   white-space: nowrap;
@@ -317,7 +394,7 @@ h6 {
   position: relative;
 }
 .livenav {
-  margin-left: 0%;
+  margin-left: 5%;
 }
 .livenav a,
 .livenav a:focus {
@@ -325,7 +402,7 @@ h6 {
   align-items: center;
   justify-content: space-between;
   font-family: "Raleway", sans-serif;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 600;
   color: white;
   white-space: nowrap;
@@ -333,7 +410,7 @@ h6 {
   position: relative;
 }
 .homenav {
-  margin-left: 0%;
+  margin-left: 5%;
 }
 .homenav a,
 .homenav a:focus {
@@ -341,7 +418,7 @@ h6 {
   align-items: center;
   justify-content: space-between;
   font-family: "Raleway", sans-serif;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 600;
   color: white;
   white-space: nowrap;
@@ -350,7 +427,7 @@ h6 {
 }
 
 .musicnav {
-  margin-left: 0%;
+  margin-left: 5%;
 }
 .musicnav a,
 .musicnav a:focus {
@@ -358,7 +435,7 @@ h6 {
   align-items: center;
   justify-content: space-between;
   font-family: "Raleway", sans-serif;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 600;
   color: white;
   white-space: nowrap;
@@ -372,7 +449,7 @@ h6 {
   align-items: center;
   justify-content: space-between;
   font-family: "Raleway", sans-serif;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 600;
   color: white;
   white-space: nowrap;
@@ -652,22 +729,23 @@ h6 {
   width: 100%;
   height: 100%;
   /*background: rgba(0, 0, 0, 0.9) url("../img/hero-bg.jpg");*/
-  background: rgba(0, 0, 0, 0.9) url("../img/IMG_6548.PNG");
+  /*background: rgba(0, 0, 0, 0.9) url("../img/IMG_6548.PNG");*/
   /*background: rgba(186,85,211, 0.9);*/
   background-size: 100%;
   padding-bottom: 3rem;
 }
 
 .IzNameimg {
-  transform: scale(8); /* Adjust the scale factor as needed */
-  margin-left: 400%;
-  margin-top: 100%;
+  transform: scale(5); /* Adjust the scale factor as needed */
+  margin-left: 275%;
+  margin-top: 70%;
+  margin-bottom: 3%;
 }
 
 @media (max-width: 1200px) {
 
   .IzNameimg {
-    transform: scale(4); /* Adjust the scale factor as needed */
+    transform: scale(3); /* Adjust the scale factor as needed */
     margin-left: 200%;
     margin-top: 70%;
   }
@@ -731,7 +809,7 @@ h6 {
   @media (max-width: 350px) {
 
     .IzNameimg {
-      transform: scale(2); /* Adjust the scale factor as needed */
+      transform: scale(3); /* Adjust the scale factor as needed */
       margin-left: 50%;
     }
 
@@ -757,7 +835,7 @@ h6 {
 
 .bloverlay {
   /*background-color: rgba(186,85,211, 0.9);*/
-  background: rgba(0, 0, 0, 0.9) url("../img/IMG_6548.PNG");
+  /*background: rgba(0, 0, 0, 0.9) url("../img/IMG_6548.PNG");*/
   background-size: 100%;
 }
 
