@@ -963,7 +963,7 @@ section {
 
 .row {
   background-color: white;
-  padding-top: 10%;
+  padding-top: 15%;
 }
 @media (max-width: 1200px) {
   .row {
