@@ -206,6 +206,12 @@ h6 {
   transform: scale(1.2);
 }
 
+@media (min-width: 1024px) {
+  .lg\:flex {
+      display: none;
+  }
+}
+
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
@@ -371,6 +377,29 @@ h6 {
   display: flex;
   list-style: none;
   align-items: center;
+}
+
+/* === Hide Mobile Nav Items by Default === */
+#navbar ul {
+  display: flex;
+  /*gap: 1rem;*/
+}
+
+@media (max-width: 1000px) {
+  #navbar ul {
+    display: none;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.95);
+    padding: 1rem;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+  }
+
+  #navbar ul.show {
+    display: flex;
+  }
 }
 
 .navbar li {
@@ -649,6 +678,18 @@ h6 {
   z-index: 999;
 }
 
+.mobile-menu-btn {
+  display: none;
+}
+
+@media (max-width: 1000px) {
+  .mobile-menu-btn {
+    display: block !important;
+  }
+}
+
+
+
 .navbar-mobile .mobile-nav-toggle {
   position: absolute;
   top: 15px;
@@ -743,76 +784,47 @@ h6 {
 }
 
 @media (max-width: 1200px) {
-
   .IzNameimg {
-    transform: scale(3); /* Adjust the scale factor as needed */
-    margin-left: 200%;
-    margin-top: 70%;
+    transform: scale(3) !important; /* Adjust the scale factor as needed */
+    margin-left: 130% !important;
+    margin-top: 50% !important;
   }
-
-  .izpic {
-    width: 100%;
-    height: 100%;
-    /*background: rgba(0, 0, 0, 0.9) url("../img/hero-bg.jpg");*/
-    background: rgba(0, 0, 0, 0.9) url("../img/ColorBackground\(Skeptic\).jpeg");
-    /*background: rgba(186,85,211, 0.9);*/
-    background-size: 50%;
-  }
-
 }
 
 @media (max-width: 900px) {
-
-  .izpic {
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.9) url("../img/hero-bg.jpg");
-    background-size: 100%;
+  .IzNameimg {
+    transform: scale(3) !important; /* Adjust the scale factor as needed */
+    margin-left: 130% !important;
+    margin-top: 50% !important;
   }
 }
 
 @media (max-width: 540px) {
-
   .IzNameimg {
-    transform: scale(3); /* Adjust the scale factor as needed */
-    margin-left: 100%;
-  }
-
-  .izpic {
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.9) url("../img/hero-bg.jpg");
-    background-size: 120%;
+    transform: scale(3) !important; /* Adjust the scale factor as needed */
+    margin-left: 100% !important;
   }
 }
 
 @media (max-width: 450px) {
-
-  .izpic {
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.9) url("../img/hero-bg.jpg");
-    background-size: 130%;
+  .IzNameimg {
+    transform: scale(3) !important; /* Adjust the scale factor as needed */
+    margin-left: 100% !important;
   }
 }
 
 @media (max-width: 400px) {
-
-  .izpic {
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.9) url("../img/hero-bg.jpg");
-    background-size: 150%;
+  .IzNameimg {
+    transform: scale(3) !important; /* Adjust the scale factor as needed */
+    margin-left: 100% !important;
   }
 }
 
   @media (max-width: 350px) {
-
     .IzNameimg {
-      transform: scale(3); /* Adjust the scale factor as needed */
-      margin-left: 50%;
+      transform: scale(3) !important; /* Adjust the scale factor as needed */
+      margin-left: 100% !important;
     }
-
   }
 
 .indexrow {
@@ -953,6 +965,13 @@ section {
   background-color: white;
   padding-top: 10%;
 }
+@media (max-width: 1200px) {
+  .row {
+    background-color: white;
+    padding-top: 40%;
+  }
+}
+
 
 .abhead {
   text-align: center;
@@ -1056,11 +1075,23 @@ section {
 .izperformance {
   margin-left: 5%;
 }
-
-@media (max-width: 767px) {
+@media (max-width: 900px) {
+  .izperformance {
+    margin-left: -7%;
+  }
+  .col-md-5 {
+    flex: 0 0 auto;
+    width: 65.666667%;
+  }
+}
+@media (max-width: 600px) {
   .izperformance {
     padding: 5%;
     margin-left: 0%;
+  }
+  .col-md-5 {
+    flex: 0 0 auto;
+    width: 100%;
   }
 }
 
@@ -1724,6 +1755,7 @@ section {
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
+
 #footer {
   background: #e9e8e6;
   padding: 30px 0;
@@ -1739,4 +1771,14 @@ section {
 
 #footer .credits a {
   color: #34b7a7;
+}
+
+.footer-social{
+  padding-right: 94px;
+}
+
+@media (max-width: 450px) {
+  .footer-social{
+    padding-right: 0px;
+  }
 }
