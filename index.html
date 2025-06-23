@@ -97,8 +97,6 @@
       animation: modalFadeIn 0.3s ease-out;
     }
   </style>
-  <script type="text/javascript" id="www-widgetapi-script" src="https://www.youtube.com/s/player/94f771d8/www-widgetapi.vflset/www-widgetapi.js" async=""></script><script src="https://www.youtube.com/iframe_api"></script><script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body class="bg-orbiting text-white overflow-x-hidden">
@@ -112,33 +110,33 @@
         </div>
         <!-- End Logo -->
         <nav id="navbar" class="homenav navbar order-last order-lg-0">
-          <ul>
+          <ul class="hidden md:flex items-center text-white font-semibold">
             <!--<li><a class="active" href="index.html">home</a></li>-->
             <li><a href="music.html">MUSIC</a></li>
             <li><a href="merch.html">MERCH</a></li>
-            <li><a href="live.html">TOUR</a></li>
+            <li><a href="tour.html">TOUR</a></li>
             <li><a href="https://linktr.ee/izzyarthursmusic" target="_blank">ARCHIVE</a></li>
-            <li><a href="words.html">LYRICS</a></li>
+            <li><a href="lyrics.html">LYRICS</a></li>
           </ul>
-          <i class="home-bi bi-list text-2xl mobile-nav-toggle"></i>
+          <!--<i class="home-bi bi-list text-3xl font-bold mobile-nav-toggle"></i>-->
         </nav><!-- .navbar -->
         
         <!-- Social Media Icons -->
-        <div class="header-social-links hidden md:flex">
+        <div class="header-social-links hidden lg:flex">
           <a href="https://www.instagram.com/izzyarthursmusic/" class="instagram social-icon text-xl"><i class="home-bi bi-instagram"></i></a>
           <a href="https://www.youtube.com/@izzyarthurs" class="youtube social-icon text-xl"><i class="home-bi bi-youtube"></i></a>
           <a href="https://www.facebook.com/share/1AJ532xJxM/?mibextid=wwXIfr" class="facebook social-icon text-xl"><i class="home-bi bi-facebook"></i></a>
           <a href="#" class="spotify social-icon text-xl"><i class="home-bi bi-spotify"></i></a>
         </div>
         
-        <!-- Mobile Menu Button 
-        <button class="md:hidden mobile-menu-btn">
+        <!-- Mobile Menu Button -->
+        <button class="md:hidden mobile-menu-btn" style="position: fixed; right: 20px;">
           <i class="fas fa-bars text-2xl"></i>
         </button>
-        -->
+      
       </div>
       <!-- Mobile Menu -->
-      <div class="mobile-menu bg-black bg-opacity-95 py-4 px-4 md:hidden">
+      <div class="mobile-menu hidden flex flex-col bg-black bg-opacity-95 py-4 px-4">
         <ul class="space-y-4">
           <li><a href="music.html">MUSIC</a></li>
           <li><a href="merch.html">MERCH</a></li>
@@ -153,6 +151,7 @@
           <a href="#" class="spotify social-icon text-xl"><i class="home-bi bi-spotify"></i></a>
         </div>
       </div>
+    
     </header>
     <!-- End Header -->
     <!-- ======= Hero Section ======= -->
@@ -325,7 +324,7 @@
                 <p class="text-gray-400 mt-2">SINGER/SONGWRITER</p>
             </div>
             
-            <div class="flex space-x-6 mb-6 md:mb-0" style="padding-right: 94px;">
+            <div class="footer-social flex space-x-6 mb-6 md:mb-0">
               <a href="https://www.instagram.com/izzyarthursmusic/" class="instagram text-2xl"><i class="home-bi bi-instagram"></i></a>
               <a href="https://www.youtube.com/@izzyarthurs" class="youtube text-2xl"><i class="home-bi bi-youtube"></i></a>
               <a href="https://www.facebook.com/share/1AJ532xJxM/?mibextid=wwXIfr" class="facebook text-2xl"><i class="home-bi bi-facebook"></i></a>
@@ -418,7 +417,8 @@
       // Mobile menu toggle
       if (mobileMenuBtn && mobileMenu) {
         mobileMenuBtn.addEventListener('click', () => {
-          mobileMenu.classList.toggle('active');
+          console.log('Mobile Menu Btn clicked');
+          mobileMenu.classList.toggle('hidden');
         });
       }
 
@@ -551,60 +551,5 @@
     });
   </script>
 </body>
-
-<!--
-<script>
-  const carousel = document.getElementById('albumCarouselScroll');
-  const albums = carousel.querySelectorAll('.album-wrapper');
-  let currentIndex = 1; // Start with "The Skeptic" as the center/active album
-
-  function updateActive() {
-    albums.forEach((el, i) => {
-      el.classList.toggle('active', i === currentIndex); // Toggle 'active' class
-    });
-
-    const el = albums[currentIndex];
-    const offsetLeft = el.offsetLeft;
-    const carouselWidth = carousel.offsetWidth;
-    const elWidth = el.offsetWidth;
-
-    // Scroll horizontally to center the active item
-    carousel.scrollTo({
-      left: offsetLeft - (carouselWidth / 2) + (elWidth / 2),
-      behavior: 'smooth'
-    });
-  }
-
-  function scrollHandler(e) {
-    e.preventDefault(); // Prevent default scrolling action
-
-    if (e.deltaY > 0 && currentIndex < albums.length - 1) {
-      currentIndex++; // Scroll right
-    } else if (e.deltaY < 0 && currentIndex > 0) {
-      currentIndex--; // Scroll left
-    }
-
-    updateActive(); // Update the active album after scrolling
-  }
-
-  // Mouse scroll event listener
-  carousel.addEventListener('wheel', scrollHandler, { passive: false });
-
-  // Keyboard navigation (left and right arrows)
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight' && currentIndex < albums.length - 1) {
-      currentIndex++;
-      updateActive();
-    }
-    if (e.key === 'ArrowLeft' && currentIndex > 0) {
-      currentIndex--;
-      updateActive();
-    }
-  });
-
-  // Call updateActive initially to set the center/active item
-  updateActive();
-</script>
--->
 
 </html>
