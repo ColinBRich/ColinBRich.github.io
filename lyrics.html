@@ -27,6 +27,7 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
+  <script src="https://cdn.tailwindcss.com"></script>
   <script type="text/javascript" id="www-widgetapi-script" src="https://www.youtube.com/s/player/94f771d8/www-widgetapi.vflset/www-widgetapi.js" async=""></script><script src="https://www.youtube.com/iframe_api"></script><script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
@@ -50,9 +51,159 @@
     font-weight: bold;
     font-size: 2rem;
   }
+  .song-card {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    cursor: pointer;
+  }
+        
+  .song-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  }
+  
+  .song-card.active {
+    border: 2px solid white;
+  }
+  
+  .song-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+    z-index: 1;
+  }
+  
+  .song-title {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    z-index: 2;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  }
+  
+  .album-name-lyrics {
+    max-height: 90px;
+    display: block;
+    margin: 20px auto 0;
+    margin-top: 5rem !important;
+  }
+
+  @media (max-width: 450px) {
+    .album-name-lyrics {
+      margin-top: 1rem !important;
+    }
+  }
+
+  .lyrics-content {
+    animation-delay: 0.5s;
+    width: 950px !important;
+    justify-content: center;
+    margin-left: 17%;
+  }
+
+  .lyrics-container {
+    height: 70vh;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+  }
+  
+  .lyrics-container::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .lyrics-container::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .lyrics-container::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+  }
+  
+  .lyrics-text {
+    white-space: pre-line;
+    line-height: 1.8;
+  }
+
+  
+  /* Animation for content */
+  @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .fade-in {
+      animation: fadeIn 0.5s ease-out forwards;
+  }
+  
+  /* Mobile menu */
+  @media (max-width: 768px) {
+      .nav-menu {
+          display: none;
+      }
+      
+      .mobile-menu-btn {
+          display: block;
+      }
+      
+      .mobile-menu {
+          display: none;
+      }
+      
+      .mobile-menu.active {
+          display: block;
+      }
+  }
+  
+  /* Song navigation */
+  .song-nav {
+      overflow-x: auto;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE and Edge */
+      scroll-behavior: smooth;
+      justify-content: center;
+  }
+  
+  .song-nav::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera */
+  }
+  @media (max-width: 900px){
+    .song-nav{
+      justify-content: start !important;
+    }
+  }
+  
+  .song-nav-item {
+      transition: all 0.3s ease;
+  }
+  
+  .song-nav-item.active {
+      transform: scale(1.05);
+  }
+  
+  /* EP badge */
+  .ep-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background-color: rgba(0,0,0,0.6);
+      padding: 0.25rem 0.75rem;
+      border-radius: 1rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      z-index: 2;
+  }
 </style>
 
-<body class="text-white overflow-x-hidden">
+<body id="pageBody" class="bg-skeptic text-white overflow-x-hidden">
   <header id="header" class="fixed w-full z-50 bg-opacity-80 backdrop-blur-md bg-black">
     <div class="container-fluid d-flex justify-content-between align-items-center">
       <div class="logo">
@@ -74,10 +225,10 @@
       </nav><!-- .navbar -->
   
       <div class="header-social-links hidden lg:flex">
-        <a href="https://www.instagram.com/izzyarthursmusic/" class="instagram"><i class="home-bi bi-instagram"></i></a>
-        <a href="https://www.youtube.com/@izzyarthurs" class="youtube"><i class="home-bi bi-youtube"></i></a>
-        <a href="https://www.facebook.com/share/1AJ532xJxM/?mibextid=wwXIfr" class="facebook"><i class="home-bi bi-facebook"></i></a>
-        <a href="#" class="spotify"><i class="home-bi bi-spotify"></i></a>
+        <a href="https://www.instagram.com/izzyarthursmusic/" class="instagram social-icon text-xl"><i class="home-bi bi-instagram"></i></a>
+        <a href="https://www.youtube.com/@izzyarthurs" class="youtube social-icon text-xl"><i class="home-bi bi-youtube"></i></a>
+        <a href="https://www.facebook.com/share/1AJ532xJxM/?mibextid=wwXIfr" class="facebook social-icon text-xl"><i class="home-bi bi-facebook"></i></a>
+        <a href="#" class="spotify social-icon text-xl"><i class="home-bi bi-spotify"></i></a>
       </div>
   
       <!-- Mobile Menu Button -->
@@ -104,12 +255,14 @@
     
   </header>
     <br><br>
-    <!--<img class="comingsoonimg" src="assets/img/Coming Soon.png" alt="">-->
+    <!--<img class="comingsoonimg" src="assets/img/Coming Soon.png" alt="">
     <div class="coming-soon-container">
       <h1 class="coming-soon-text">Coming Soon</h1>
     </div>
+    -->
     <!-- Beginning of Main Content -->
-    <!-- <div class="row">
+    <!--
+    <div class="row">
         <div class="col-2"></div>
         <div class="col-8 typewriter">
             <h1 id="wordsheader"><b>Long Time Coming</b></h1>
@@ -145,50 +298,6 @@
                 no sense in running running running <br>
                 it’s been a long time coming <br>
                 And it’s here now<br>
-
-            </p>
-
-
-            <h1 id="wordsheader"><b>Orbiting</b></h1>
-            <p class="wordslyrics">
-                I know it’s no use <br>
-                nothing i can say to turn your head <br>
-                bring love back from the dead <br><br>
-
-                Colder than your shoulder when i reached out for my one true lover disappeared into the sun <br>
-                No i never loved noone <br>
-                never loved noone <br>
-                Eye of the beholder and you know i’m looking down <br>
-                Drink it up<br>
-                like you wanna drown <br>
-                Took away my pretty crown <br>
-                and now i wanna drown <br>
-                Orbiting<br>
-                Close enough to hear the voices echoing <br>
-                Never close enough to touch <br>
-                Orbiting<br>
-                Never close enough <br><br>
-
-
-                I know you know i’m out here <br>
-                Circling your light <br>
-                Torn by the sight <br>
-                Lovelorn satellite <br><br>
-
-                Colder than you shoulder when i reached out for my one true lover disappeared into the sun <br>
-                No i never loved noone <br>
-                I never loved noone <br>
-                Eye of the beholder and you know i’m looking down <br>
-                drink it up <br>
-                Like you wanna drown <br>
-                Took away my pretty crown <br>
-                and now I wanna drown <br>
-                Orbiting <br>
-                Close enough to hear the voices echoing <br>
-                Never close enough to touch <br>
-                Orbiting <br>
-                Never close enough <br>
-
 
             </p>
 
@@ -406,7 +515,480 @@
 
         </div>
         <div class="col-2"></div>
-    </div> -->
+    </div>
+    -->
+
+    <main class="pt-24 pb-20">
+      <div class="container mx-auto px-4">
+          <!--<h1 class="text-4xl md:text-5xl font-bold text-center mb-8 fade-in">LYRICS</h1>-->
+          
+          <!-- EP Title
+          <div class="text-center mb-10 fade-in" style="animation-delay: 0.2s">
+              <h2 class="text-2xl md:text-3xl font-bold">FIRST EP</h2>
+              <p class="text-gray-300 mt-2">Released: 2023</p>
+          </div>
+          -->
+          <!-- Song Navigation -->
+          <div class="song-nav flex space-x-4 mt-20 mb-10 pb-2 overflow-x-auto fade-in" style="animation-delay: 0.3s; justify-content: center;">
+              <div class="song-nav-item active flex-shrink-0" onclick="changeSong('skeptic')">
+                <div class="song-card w-40 h-40 relative overflow-hidden rounded-lg shadow-lg cursor-pointer group" data-song="skeptic">
+                  <img src="assets/img/THE_SKEPTIC_ANCHOR_IMAGE_FINAL.png" alt="The Skeptic" class="object-cover w-full h-full absolute inset-0">
+                  <div class="absolute inset-0 bg-black/40 bg-opacity-30 z-10 group-hover:bg-opacity-40 transition"></div>
+                  <!--<div class="ep-badge z-20 text-sm absolute top-2 left-2 bg-white text-black px-2 py-1 rounded">FIRST EP</div>-->
+                  <h3 class="song-title z-20 absolute bottom-2 left-2 text-white font-bold">THE SKEPTIC</h3>
+                </div>
+              </div>
+              
+              <div class="song-nav-item flex-shrink-0" onclick="changeSong('orbiting')">
+                <div class="song-card w-40 h-40 relative overflow-hidden rounded-lg shadow-lg cursor-pointer group" data-song="orbiting">
+                  <img src="assets/img/ORBITING_ANCHOR_IMAGE_FINAL.png" alt="Orbiting" class="object-cover w-full h-full absolute inset-0">
+                  <div class="absolute inset-0 bg-black/40 bg-opacity-30 z-10 group-hover:bg-opacity-40 transition"></div>
+                  <!--<div class="ep-badge z-20 text-sm absolute top-2 left-2 bg-white text-black px-2 py-1 rounded">FIRST EP</div>-->
+                  <h3 class="song-title z-20 absolute bottom-2 left-2 text-white font-bold">ORBITING</h3>
+                </div>
+              </div>
+              
+              <div class="song-nav-item flex-shrink-0" onclick="changeSong('crystal')">
+                <div class="song-card w-40 h-40 relative overflow-hidden rounded-lg shadow-lg cursor-pointer group" data-song="crystal">
+                  <img src="assets/img/CRYSTAL_ANCHOR_IMAGE_FINAL.png" alt="Crystal" class="object-cover w-full h-full absolute inset-0">
+                  <div class="absolute inset-0 bg-black/40 bg-opacity-30 z-10 group-hover:bg-opacity-40 transition"></div>
+                  <!--<div class="ep-badge z-20 text-sm absolute top-2 left-2 bg-white text-black px-2 py-1 rounded">FIRST EP</div>-->
+                  <h3 class="song-title z-20 absolute bottom-2 left-2 text-white font-bold">CRYSTAL</h3>
+                </div>
+              </div>
+              
+              <div class="song-nav-item flex-shrink-0" onclick="changeSong('newbestfriend')">
+                <div class="song-card w-40 h-40 relative overflow-hidden rounded-lg shadow-lg cursor-pointer group" data-song="newbestfriend">
+                  <img src="assets/img/NEW_BEST_FRIEND_ANCHOR_IMAGE FINAL.png" alt="New Best Friend" class="object-cover w-full h-full absolute inset-0">
+                  <div class="absolute inset-0 bg-black/40 bg-opacity-30 z-10 group-hover:bg-opacity-40 transition"></div>
+                  <!--<div class="ep-badge z-20 text-sm absolute top-2 left-2 bg-white text-black px-2 py-1 rounded">FIRST EP</div>-->
+                  <h3 class="song-title z-20 absolute bottom-2 left-2 text-white font-bold">NEW BEST FRIEND</h3>
+                </div>
+              </div>
+              
+              <!-- Placeholder for future songs -->
+              <div class="song-nav-item flex-shrink-0 opacity-50 hover:opacity-80 transition">
+                  <div class="song-card w-40 h-40 bg-gray-800 rounded-lg shadow-lg overflow-hidden relative flex items-center justify-center">
+                      <div class="text-center p-4">
+                          <i class="fas fa-music text-3xl mb-2"></i>
+                          <h3 class="text-lg font-bold">COMING SOON</h3>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+          <!-- Current Song Info -->
+          <div class="flex flex-col md:flex-row items-center md:items-start mb-8 fade-in" style="animation-delay: 0.4s; justify-content: center;">
+              <!-- Song Cover -->
+              <div class="w-64 h-64 mb-6 md:mb-0 md:mr-8 flex-shrink-0">
+                  <div id="songCover" class="w-full h-full bg-skeptic rounded-lg shadow-2xl overflow-hidden relative">
+                      <div class="absolute inset-0 flex items-center justify-center">
+                        <img id="songCoverImage" src="assets/img/THE_SKEPTIC_ANCHOR_IMAGE_FINAL.png" alt="The Skeptic" class="w-full h-full object-cover">
+                      </div>
+                  </div>
+              </div>
+
+
+              <!-- Song Info -->
+              <div class="text-center md:text-left">
+                  <!--
+                  <div class="flex items-center justify-center md:justify-start mb-4">
+                      <span id="trackNumber" class="bg-white bg-opacity-20 text-sm px-3 py-1 rounded-full mr-3">TRACK 1</span>
+                      <span class="bg-white bg-opacity-20 text-sm px-3 py-1 rounded-full">FIRST EP</span>
+                  </div>
+                  -->
+                  <!--<h2 id="songTitle" class="text-3xl font-bold mb-4">THE SKEPTIC</h2>-->
+                  <img id="songTitleImage" src="assets/img/THE_SKEPTIC_LOGO.png" alt="THE SKEPTIC" class="album-name-lyrics mx-auto max-w-xs sm:max-w-sm md:max-w-md">
+                  
+                  <p id="songDescription" class="text-gray-300 max-w-2xl mb-6">
+                     <!-- "The Skeptic" explores themes of doubt and questioning, reflecting on the journey of seeking truth in a world of uncertainty. The track's introspective lyrics invite listeners to embrace their own questions and skepticism as a path to deeper understanding.-->
+                  </p>
+                 
+                 <!--<div class="flex flex-wrap justify-center md:justify-start">-->
+                  <!--
+                  <div class="flex flex-wrap justify-center mt-auto">
+                      <a href="https://open.spotify.com/track/TRACK_ID" class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-full transition mr-4 mb-3">
+                          <i class="fab fa-spotify mr-2"></i> LISTEN ON SPOTIFY
+                      </a>
+                      
+                      <a href="https://music.apple.com/album/ALBUM_ID" class="bg-gray-700 hover:bg-gray-600 text-white px-6 py-2 rounded-full transition mb-3">
+                          <i class="fab fa-apple mr-2"></i> APPLE MUSIC
+                      </a>
+                    
+                  </div>
+                  -->
+              </div>
+          </div>
+          
+          <!-- Lyrics Content -->
+          <section class="flex items-center justify-center px-4 py-12">
+          <div class="bg-black/40 backdrop-blur-sm rounded-lg p-6 fade-in max-w-5xl w-full">
+              <!-- Song Content Containers -->
+              <div id="skepticContent" class="song-content">
+                  <div class="lyrics-container pr-2">
+                      <div class="flex justify-between items-center mb-6">
+                          <h3 class="text-2xl font-bold">LYRICS</h3>
+                          <!--
+                          <button class="text-sm bg-white bg-opacity-10 hover:bg-opacity-20 px-4 py-2 rounded-full transition copy-lyrics-btn" data-song="skeptic">
+                              <i class="far fa-copy mr-2"></i> COPY LYRICS
+                          </button>
+                          -->
+                      </div>
+                      <pre class="lyrics-text text-gray-300 whitespace-pre-line">Lifelong skeptic 
+                        Now drunk on your own romantics
+                        Told yourself you’d do whatever it took
+                        
+                        A slow burn
+                        Goes faster
+                        When you fan the flames with laughter
+                        And abandon the classic playboy playbook
+                        
+                        Swing 
+                        For the fences
+                        Don’t believe 
+                        In coincidences
+                        Anything for the one of your dreams
+                        You know when you know and you know
+                        Let em look look look 
+                        
+                        
+                        Oh nothing
+                        But a fool for love
+                        Nothing
+                        But a fool for love
+                        
+                        Fool for love
+                        Fool for love
+                        Fool for love
+                        Fool for love
+                        
+                        Career cynic 
+                        Made fun of my friends when they were in it
+                        Played it safe away from cheaters and schemers and crooks
+                        Too clever for the bait! Bite! Hook!
+                        
+                        But running 
+                        You hit the pavement
+                        Shower me
+                        In local arrangements
+                        Love can be embarrassing
+                        Too late for me
+                        With your name
+                        In the margins of my notebook
+                        
+                        Oh nothing
+                        But a fool for love
+                        Nothing
+                        But a fool for love
+                        
+                        Fool for love
+                        Fool for love
+                        Fool for love
+                        Fool for love
+                        
+                        Please please please 
+                        Please please please 
+                        Don’t throw me 
+                        Back out to sea
+                        Architect of my happy,
+                        Don’t devastate me
+                        Please please please
+                        Please please 
+                        Oh look at what you made me
+                        I’m nothing nothing OH
+                          
+                        Resolution pre chorus
+                        But a fool for love
+                        Love
+                        Fool for love 
+                        Swing for the fences 
+                        Don’t believe in coincidences
+                        Anything for the one of your dreams
+                        You know when you know and i know
+                        Let em look look look 
+                        
+                        Oh nothing
+                        But a fool for love
+                        Nothing
+                        But a fool for love
+                        
+                        Fool for your love
+                        Fool for your love
+                        For your love
+                        For your love
+                        
+                      </pre>
+                  </div>
+              </div>
+              
+              <div id="orbitingContent" class="song-content hidden">
+                  <div class="lyrics-container pr-2">
+                      <div class="flex justify-between items-center mb-6">
+                          <h3 class="text-2xl font-bold">LYRICS</h3>
+                          <!--
+                          <button class="text-sm bg-white bg-opacity-10 hover:bg-opacity-20 px-4 py-2 rounded-full transition copy-lyrics-btn" data-song="skeptic">
+                              <i class="far fa-copy mr-2"></i> COPY LYRICS
+                          </button>
+                          -->
+                      </div>
+                      <pre class="lyrics-text text-gray-300 whitespace-pre-line">I know it’s no use
+                        Nothing i can say to turn your head
+                        Bring love back from the dead
+                        
+                        Colder than your shoulder when i reached out for my 
+                        One true lover disappeared into the sun
+                        I never loved noone 
+                        I never loved noone
+                        Eye of the beholder and you know i’m looking down
+                        Drink it up
+                        Like you want to drown
+                        Took away my pretty crown
+                        And now i wanna drown
+                        
+                        Orbiting
+                        Close enough to hear the voices echoing
+                        Never close enough to touch
+                        Never close enough 
+                        Orbiting
+                        But never close enough to touch
+                        
+                        I know I know I know 
+                        You know i’m out here
+                        Circling your light
+                        Torn by the sight
+                        A lovelorn satellite 
+                        
+                        Colder than your shoulder when i reached out for my 
+                        One true lover disappeared into the sun
+                        I never loved noone 
+                        I never loved noone
+                        Eye of the beholder 
+                        And you know i’m looking down
+                        Drink it up
+                        Like you wanna drown 
+                        Took away my pretty crown
+                        And now I wanna drown
+                        
+                        Orbiting
+                        Close enough to hear the voices echoing
+                        Never close enough to touch
+                        (never close enough)
+                        Orbiting
+                        But never close enough to touch
+                        
+                        It echoes in the void
+                        So i stay here 
+                        On my dying planet 
+                        While you’re off chasing sunsets
+                        On someone else’s venus
+                        I cry out to the dark
+                        Losing all i want
+                        I still hear your voice
+                        It echoes in the void
+                        
+                        Now i’m sentenced
+                        To watch from a distance
+                        The life of my truest love
+                        Never close enough
+                        Orbiting
+                        But never close enough to touch 
+                        Never close enough 
+                        Never close enough 
+                        Never close enough 
+                        Never close enough 
+                        Orbiting 
+                        But never close enough 
+                        
+                      </pre>
+                  </div>
+              </div>
+              
+              <div id="crystalContent" class="song-content hidden">
+                  <div class="lyrics-container pr-2">
+                      <div class="flex justify-between items-center mb-6">
+                          <h3 class="text-2xl font-bold">LYRICS</h3>
+                          <!--
+                          <button class="text-sm bg-white bg-opacity-10 hover:bg-opacity-20 px-4 py-2 rounded-full transition copy-lyrics-btn" data-song="skeptic">
+                              <i class="far fa-copy mr-2"></i> COPY LYRICS
+                          </button>
+                          -->
+                      </div>
+                      <pre class="lyrics-text text-gray-300 whitespace-pre-line">I would give it all up for you
+                        didn’t even ask me to
+                        nothing even matters like it used to 
+                        hazy ripples of life…
+                        bye bye (bye bye)
+                        
+                        you’re so clear to me
+                        crystal clear to me
+                        you’re so clear to me i
+                        see it all with you
+                        
+                        so clear to me 
+                        crystal clear to me
+                        you’re so clear to me i
+                        
+                        ooh
+                        ooh
+                        
+                        elevator up up up with you
+                        party’s on the roof tonight
+                        nothing can match my altitude
+                        nothing’s ever had me so high
+                        
+                        we are in the space between the stars
+                        everything i see
+                        tout ce que je pourrais vouloir
+                        you’re mine
+                        and i get so carried away with you 
+                        make it feel so new
+                        
+                        you’re so clear to me
+                        crystal clear to me
+                        you’re so clear to me i
+                        see it all with you
+                        
+                        so clear to me 
+                        crystal clear to me
+                        you’re so clear to me i
+                        
+                        ooh
+                        ooh
+                        
+                        crystalline reflections in skyscrapin windows
+                        i know
+                        i saw your visage
+                        like light, it flickers in
+                        heat waves
+                        water ripples
+                        i am an oracle
+                        and i saw every single sign
+                        no
+                        it’s not a mirage
+                        no
+                        trick of perception 
+                        my 
+                        glittering visions
+                        this one was written in the divine
+                        (ooh)
+                        
+                        you’re so clear to me
+                        crystal 
+                        you’re so clear to me i
+                        see it all with you
+                        
+                        so clear to me 
+                        crystal
+                        you’re so clear to me i
+                        
+                      </pre>
+                  </div>
+              </div>
+              
+              <div id="newbestfriendContent" class="song-content hidden">
+                  <div class="lyrics-container pr-2">
+                      <div class="flex justify-between items-center mb-6">
+                          <h3 class="text-2xl font-bold">LYRICS</h3>
+                          <!--
+                          <button class="text-sm bg-white bg-opacity-10 hover:bg-opacity-20 px-4 py-2 rounded-full transition copy-lyrics-btn" data-song="skeptic">
+                              <i class="far fa-copy mr-2"></i> COPY LYRICS
+                          </button>
+                          -->
+                      </div>
+                      <pre class="lyrics-text text-gray-300 whitespace-pre-line">I want your honeysuckle summer sweet
+                        I want your winter horror
+                        I want you worshiping down on your knees
+                        The grotesque and the glamour
+                        
+                        I wanna get get get get get to know ya
+                        I wanna get get get under your skin
+                        I wanna get get get get get you closer
+                        I wanna be your new best friend
+                        
+                        Now all your witching hours belong to me
+                        And I’m your new favorite phantom
+                        Float down the hallways playing
+                        Hide and seek
+                        In your mind’s inner mansion
+                        
+                        I wanna get get get get get to know ya
+                        I wanna get get get under your skin
+                        I wanna get get get get get you closer
+                        I wanna be your new best friend
+                        
+                        Ride off into the sunset 
+                        I bet you’re gonna love it there with me
+                        No idiots 
+                        No Icarus 
+                        I mean what a sleaze 
+                        Don’t you think?
+                        He was asking too much
+                        Then there’s us
+                        Oh here’s us 
+                        And we’re just at the beginning 
+                        I know i’m an optimist
+                        But i’ve got a real good feeling
+                        Do you feel it too?
+                        Do you
+                        Want to
+                        Get to know
+                        Me
+                        
+                        I wanna get get get get get to know ya
+                        I wanna get get get under your skin
+                        I wanna get get get get get you closer
+                        I wanna be your new best friend                        
+                      </pre>
+                  </div>
+              </div>
+              
+              <div id="comingSoonContent" class="song-content hidden">
+                  <div class="flex flex-col items-center justify-center py-16">
+                      <i class="fas fa-music text-5xl mb-4 text-gray-400"></i>
+                      <h3 class="text-2xl font-bold mb-2">NEW MUSIC COMING SOON</h3>
+                      <p class="text-gray-400 text-center max-w-md">Stay tuned for new releases from Izzy Arthurs. Follow on social media for updates and announcements.</p>
+                      <div class="mt-8 flex space-x-4">
+                          <a href="https://www.instagram.com/izzyarthursmusic/" class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-full transition hover:from-purple-600 hover:to-pink-600">
+                              <i class="fab fa-instagram mr-2"></i> FOLLOW ON INSTAGRAM
+                          </a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          </section>
+          
+          <!-- More from Izzy -->
+          <div class="mt-16 fade-in" style="animation-delay: 0.6s">
+              <h2 class="text-2xl font-bold mb-6 text-center">MORE FROM IZZY</h2>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6" style="width: 86%; margin-left: 7%;">
+                  <a href="music.html" class="bg-black/40 backdrop-blur-sm rounded-lg p-6 hover:bg-opacity-50 transition flex items-center">
+                      <i class="fas fa-headphones text-3xl mr-4"></i>
+                      <div>
+                          <h3 class="text-xl font-bold mb-1">LISTEN</h3>
+                          <p class="text-gray-400">Stream Izzy's music on all platforms</p>
+                      </div>
+                  </a>
+                  
+                  <a href="tour.html" class="bg-black/40 backdrop-blur-sm rounded-lg p-6 hover:bg-opacity-50 transition flex items-center">
+                      <i class="fas fa-ticket-alt text-3xl mr-4"></i>
+                      <div>
+                          <h3 class="text-xl font-bold mb-1">LIVE SHOWS</h3>
+                          <p class="text-gray-400">See upcoming tour dates and events</p>
+                      </div>
+                  </a>
+                  
+                  <a href="merch.html" class="bg-black/40 backdrop-blur-sm rounded-lg p-6 hover:bg-opacity-50 transition flex items-center">
+                      <i class="fas fa-tshirt text-3xl mr-4"></i>
+                      <div>
+                          <h3 class="text-xl font-bold mb-1">MERCH</h3>
+                          <p class="text-gray-400">Shop official Izzy Arthurs merchandise</p>
+                      </div>
+                  </a>
+              </div>
+          </div>
+      </div>
+  </main>
+
     <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
       class="bi bi-arrow-up-short"></i></a>
@@ -424,6 +1006,121 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
   <script>
+    // Song data
+    const songData = {
+        skeptic: {
+            title: "The Skeptic",
+            description: "'The Skeptic' explores themes of doubt and questioning, reflecting on the journey of seeking truth in a world of uncertainty. The track's introspective lyrics invite listeners to embrace their own questions and skepticism as a path to deeper understanding.",
+            bgClass: "bg-skeptic",
+            coverImage: "assets/img/THE_SKEPTIC_ANCHOR_IMAGE_FINAL.png",
+            titleImage: "assets/img/THE_SKEPTIC_LOGO.png",
+            trackNumber: "TRACK 1",
+            bgGradient: "linear-gradient(135deg, #db2777 0%, #7e22ce 50%, #4c1d95 100%)"
+        },
+        orbiting: {
+            title: "Orbiting",
+            description: "'Orbiting' is a metaphorical journey through the gravitational pull of relationships. The song examines how we circle around important people in our lives, sometimes getting too close, sometimes drifting too far, but always connected by an invisible force.",
+            bgClass: "bg-orbiting",
+            coverImage: "assets/img/ORBITING_ANCHOR_IMAGE_FINAL.png",
+            titleImage: "assets/img/Orbiting_LOGO.png",
+            trackNumber: "TRACK 2",
+            bgGradient: "linear-gradient(135deg, #065f46 0%, #1f2937 50%, #111827 100%)"
+        },
+        crystal: {
+            title: "Crystal",
+            description: "'Crystal' delves into the multifaceted nature of identity and self-perception. Through the metaphor of a crystal with many facets, the song explores how we present different sides of ourselves to different people, while maintaining our core essence.",
+            bgClass: "bg-crystal",
+            coverImage: "assets/img/CRYSTAL_ANCHOR_IMAGE_FINAL.png",
+            titleImage: "assets/img/Crystal_logo.png",
+            trackNumber: "TRACK 3",
+            bgGradient: "linear-gradient(135deg, #1e40af 0%, #312e81 50%, #1e1b4b 100%)"
+        },
+        newbestfriend: {
+            title: "New Best Friend",
+            description: "'New Best Friend' celebrates the unexpected connections that change our lives. The song captures the excitement and wonder of finding someone who instantly feels like they've always been part of your story, and the joy of building a meaningful friendship.",
+            bgClass: "bg-newbestfriend",
+            coverImage: "assets/img/NEW_BEST_FRIEND_ANCHOR_IMAGE FINAL.png",
+            titleImage: "assets/img/NEW_BEST_FRIEND_LOGO_WHITE.png",
+            trackNumber: "TRACK 4",
+            bgGradient: "linear-gradient(135deg, #f97316 0%, #c2410c 50%, #7c2d12 100%)"
+        },
+        "coming-soon": {
+            title: "COMING SOON",
+            description: "New music is on the way! Stay tuned for upcoming releases from Izzy Arthurs.",
+            bgClass: "bg-gray-800",
+            trackNumber: "",
+            bgGradient: "linear-gradient(135deg, #374151 0%, #1f2937 50%, #111827 100%)"
+        }
+    };
+        
+    // Function to change the active song
+    function changeSong(songId) {
+        // Remove active class from all items
+        const songNavItems = document.querySelectorAll('.song-nav-item');
+        songNavItems.forEach(i => {
+            i.classList.remove('active');
+            const songCard = i.querySelector('.song-card');
+            if (songCard) {
+                songCard.classList.remove('active');
+            }
+        });
+        
+        // Add active class to clicked item
+        const activeItem = document.querySelector(`.song-nav-item[onclick*="${songId}"]`);
+        if (activeItem) {
+            activeItem.classList.add('active');
+            const songCard = activeItem.querySelector('.song-card');
+            if (songCard) {
+                songCard.classList.add('active');
+            }
+        }
+        
+        // Hide all song contents
+        const songContents = document.querySelectorAll('.song-content');
+        songContents.forEach(content => content.classList.add('hidden'));
+        
+        // Show selected song content
+        const selectedContent = document.getElementById(`${songId}Content`);
+        if (selectedContent) {
+            selectedContent.classList.remove('hidden');
+        }
+        
+        // Update song info
+        updateSongInfo(songId);
+    }
+    
+    // Update song information
+    function updateSongInfo(songId) {
+        const song = songData[songId];
+        if (!song) return;
+        
+        // Update song title and description
+        const titleImg = document.getElementById('songTitleImage');
+        titleImg.src = song.titleImage;
+        titleImg.alt = song.title;
+
+        //const songDescription = document.getElementById('songDescription');
+        //if (songDescription) songDescription.textContent = song.description;
+        
+        // Update track number
+        const trackNumberElement = document.getElementById('trackNumber');
+        if (trackNumberElement) {
+            trackNumberElement.textContent = song.trackNumber;
+            trackNumberElement.style.display = song.trackNumber ? 'inline-block' : 'none';
+        }
+        
+        // Update song cover
+        const songCoverImage = document.getElementById('songCoverImage');
+        songCoverImage.src = song.coverImage;
+        songCoverImage.alt = song.title;
+        
+        // Update page background with transition
+        const pageBody = document.getElementById('pageBody');
+        if (pageBody) {
+            pageBody.style.background = song.bgGradient;
+        }
+    }
+
     document.addEventListener('DOMContentLoaded', function() {
       const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
       const mobileMenu = document.querySelector('.mobile-menu');

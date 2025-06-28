@@ -34,42 +34,6 @@
   
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap');
-    /* Album-specific background colors */
-    .bg-skeptic {
-        background: linear-gradient(135deg, #d84386 0%, #7e22ce 50%, #611a87 100%);
-    }
-    
-    .bg-orbiting {
-        background: linear-gradient(135deg, #065f46 0%, #1f2937 50%, #111827 100%);
-    }
-    
-    .bg-crystal {
-        background: linear-gradient(135deg, #1e40af 0%, #312e81 50%, #1e1b4b 100%);
-    }
-
-    .bg-newbestfriend {
-        background: linear-gradient(135deg, #ee3b18 0%, #c43c0f 50%, #621d05 100%);
-    }
-    /* Upcoming shows section background transitions */
-    #upcomingShowsSection {
-        transition: background 1.5s ease;
-    }
-    
-    .bg-gradient-skeptic {
-        background: linear-gradient(to bottom, #000000 0%, #d84386 50%, #611a87 100%);
-    }
-    
-    .bg-gradient-orbiting {
-        background: linear-gradient(to bottom, #000000 0%, #065f46 50%, #1f2937 100%);
-    }
-    
-    .bg-gradient-crystal {
-        background: linear-gradient(to bottom, #000000 0%, #1e40af 50%, #312e81 100%);
-    }
-
-    .bg-gradient-newbestfriend {
-        background: linear-gradient(to bottom, #000000 0%, #ee3b18 50%, #c43c0f 100%);
-    }
 
     /* YouTube video container */
     .video-container {
@@ -162,11 +126,11 @@
     <!-- End Hero -->
   
   <main>
-    <section class="min-h-screen pt-4 pb-20 flex items-center justify-center relative overflow-hidden">
+    <section class="bg-size pt-4 pb-20 flex items-center justify-center relative overflow-hidden">
       <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-50 z-10 pointer-events-none"></div>
       
         <div class="container mx-auto px-4 z-20 relative">
-          <div class="album-carousel w-full max-w-3xl mx-auto h-96 relative mt-8">
+          <div class="album-carousel-touch album-carousel w-full max-w-3xl mx-auto h-96 relative mt-8">
             <!-- Album 1: The Skeptic -->
             <div class="album prev" data-bg="skeptic" data-text="THE SKEPTIC" data-gradient="bg-gradient-skeptic">
               <div class="flex flex-col items-center">
@@ -199,7 +163,6 @@
                     <!--<p class="text-gray-300 mt-2">RELEASED: 2023</p>-->
                 </div>
             </div>
-            
         </div>
 
         <div class="relative z-30 flex items-center justify-between w-full max-w-3xl mx-auto mt-20 px-8">
@@ -312,6 +275,21 @@
           <div class="text-center mt-12">
               <a href="live.html" class="inline-block border border-white px-8 py-3 rounded-full hover:bg-white hover:text-blue-900 transition">VIEW ALL SHOWS</a>
           </div>
+      </div>
+    </section>
+     <!-- Instagram Feed Section -->
+    <section class="py-20 bg-black">
+      <div class="container mx-auto px-4">
+          <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-12 gap-4 sm:gap-0 text-center sm:text-left">
+              <h2 class="text-3xl font-bold">INSTAGRAM</h2>
+              <a href="https://www.instagram.com/izzyarthursmusic/" target="_blank" class="flex justify-center sm:justify-start items-center text-white-500 hover:text-pink-400 transition">
+                  <span class="mr-2">FOLLOW @IZZYARTHURSMUSIC</span>
+                  <i class="fab fa-instagram"></i>
+              </a>
+          </div>
+          
+          <div class="tagembed-widget" style="width:100%;height:100%;overflow:auto;" data-widget-id="289959" website="1"></div>
+          <script src="https://widget.tagembed.com/embed.min.js" type="text/javascript"></script>
       </div>
     </section>
   </main>
@@ -548,6 +526,38 @@
       });
 
       updateCarousel();
+
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      const swipeThreshold = 50; // minimum distance in px to trigger swipe
+
+      const carouselElement = document.querySelector('.album-carousel');
+
+      carouselElement.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+      });
+
+      carouselElement.addEventListener('touchend', e => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipeGesture();
+      });
+
+      function handleSwipeGesture() {
+        const deltaX = touchEndX - touchStartX;
+
+        if (Math.abs(deltaX) > swipeThreshold) {
+          if (deltaX > 0) {
+            // Swipe right → previous album
+            currentIndex = (currentIndex - 1 + totalAlbums) % totalAlbums;
+          } else {
+            // Swipe left → next album
+            currentIndex = (currentIndex + 1) % totalAlbums;
+          }
+          updateCarousel();
+        }
+      }
+
     });
   </script>
 </body>
