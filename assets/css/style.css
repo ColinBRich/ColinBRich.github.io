@@ -226,24 +226,64 @@ h6 {
 }
 
 /*--------------------------------------------------------------
+# Background Album Colors
+--------------------------------------------------------------*/
+/* Album-specific background colors */
+.bg-skeptic {
+  background: linear-gradient(135deg, #d84386 0%, #7e22ce 50%, #611a87 100%);
+}
+
+.bg-orbiting {
+  background: linear-gradient(135deg, #065f46 0%, #1f2937 50%, #111827 100%);
+}
+
+.bg-crystal {
+  background: linear-gradient(135deg, #1e40af 0%, #312e81 50%, #1e1b4b 100%);
+}
+
+.bg-newbestfriend {
+  background: linear-gradient(135deg, #ee3b18 0%, #c43c0f 50%, #621d05 100%);
+}
+/* Upcoming shows section background transitions */
+#upcomingShowsSection {
+  transition: background 1.5s ease;
+}
+
+.bg-gradient-skeptic {
+  background: linear-gradient(to bottom, #000000 0%, #d84386 50%, #611a87 100%);
+}
+
+.bg-gradient-orbiting {
+  background: linear-gradient(to bottom, #000000 0%, #065f46 50%, #1f2937 100%);
+}
+
+.bg-gradient-crystal {
+  background: linear-gradient(to bottom, #000000 0%, #1e40af 50%, #312e81 100%);
+}
+
+.bg-gradient-newbestfriend {
+  background: linear-gradient(to bottom, #000000 0%, #ee3b18 50%, #c43c0f 100%);
+}
+
+.bg-size {
+  min-height: 90vh;
+}
+
+@media (max-width: 1024px) {
+  .bg-size {
+    min-height: 60vh;
+  }
+}  
+
+@media (max-width: 450px) {
+  .bg-size {
+    min-height: 30vh;
+  }
+} 
+
+/*--------------------------------------------------------------
 # Carousel Styling
 --------------------------------------------------------------*/
-/*
-#albumCarousel img,
-#posters img {
-  border-radius: 10px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  margin-top: 2rem;
-}
-
-#albumCarousel img:hover,
-#posters img:hover {
-  transform: scale(1.03);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
-}
-*/
-
 .album-carousel {
   position: relative;
   perspective: 1000px;
@@ -298,35 +338,37 @@ h6 {
   animation: fadeIn 1s ease-in-out;
 }
 
-/* Album Carousel Styles */
-/*
-.scroll-carousel {
+/* Album Carousel (Scroll) Styles */
+.carousel-scroll-wrapper {
+  overflow-x: hidden;
+  /* touch-action: pan-y; Allow vertical scroll, block horizontal */
+}
+
+.album-carousel-touch {
   display: flex;
-  overflow-x: auto;
+  gap: 2rem;
   scroll-snap-type: x mandatory;
-  padding: 20px 0;
-  scroll-behavior: smooth;
-  justify-content: center;
-  align-items: center;
-  gap: 60px;
+  /*padding: 1rem;*/
 }
 
-.album-wrapper {
-  flex: 0 0 auto;
+.album-carousel-touch .album {
+  flex: 0 0 80%;
   scroll-snap-align: center;
-  transition: transform 0.5s ease, opacity 0.5s ease, filter 0.5s ease;
-  transform: scale(0.9);
-  opacity: 0.4;
-  filter: brightness(80%);
-  text-align: center;
+  transition: all 0.5s ease;
 }
 
-.album-wrapper.active {
-  transform: scale(1.1);
-  opacity: 1;
-  filter: brightness(100%);
+@media (max-width: 750px) {
+  .album-carousel-touch .album:not(.active) {
+    filter: brightness(0.3) blur(2px);
+    transform: scale(0.9);
+  }
+
+  .album-carousel-touch .album.active {
+    filter: none;
+    transform: scale(1);
+  }
 }
-*/
+
 
 .album-cover {
   max-height: 330px;
