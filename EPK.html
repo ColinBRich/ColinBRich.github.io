@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>EPK</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cormorant+Garamond">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Slab">
+
+  <!-- Vendor CSS Files -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="text/javascript" id="www-widgetapi-script" src="https://www.youtube.com/s/player/94f771d8/www-widgetapi.vflset/www-widgetapi.js" async=""></script><script src="https://www.youtube.com/iframe_api"></script><script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+ 
+  <link rel="stylesheet" href="https://use.typekit.net/vle5hqf.css">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap');
+  </style>
+    <style>
+        body {
+            background-color: #f8f8f8;
+            color: #333333;
+        }
+        
+        .header-bg {
+            background-color: #333333;
+        }
+        
+        .epk-section {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .epk-section:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .download-btn {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Tablet */
+        @media (max-width: 768px) {
+            .download-btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 480px) {
+            .download-btn {
+                padding: 8px 16px;
+                font-size: 0.8rem;
+                width: 50%; /* Full width for stacking */
+            }
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .press-quote {
+            border-left: 4px solid #db2777;
+            background-color: #f9fafb;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+        }
+        
+        .mobile-menu {
+            display: none;
+        }
+        
+        .mobile-menu.active {
+            display: block;
+        }
+        
+        /* Animation for content */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        
+        /* Photo gallery */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .photo-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .photo-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .photo-item img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+        }
+        
+        .photo-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .photo-item:hover .photo-overlay {
+            opacity: 1;
+        }
+        
+        /* Tech rider styling */
+        .tech-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        
+        .tech-table th,
+        .tech-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .tech-table th {
+            background-color: #f9fafb;
+            font-weight: 600;
+        }
+        
+        /* Contact cards */
+        .contact-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            border: 2px solid #e5e7eb;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-card:hover {
+            border-color: #db2777;
+            transform: translateY(-2px);
+        }
+        
+        /* Custom hover text styling for track details */
+        .hover-text-white {
+            transition: color 0.3s ease;
+        }
+        
+        .cursor-pointer:hover .hover-text-white {
+            color: white !important;
+        }
+        
+        /* Song-specific gradient backgrounds */
+        .track-skeptic:hover {
+            background: linear-gradient(135deg, #d84386 0%, #7e22ce 50%, #611a87 100%) !important;
+            color: white !important;
+        }
+
+        .track-orbiting:hover {
+            background: linear-gradient(135deg, #065f46 0%, #1f2937 50%, #111827 100%) !important;
+            color: white !important;
+        }
+
+        .track-crystal:hover {
+            background: linear-gradient(135deg, #1e40af 0%, #312e81 50%, #1e1b4b 100%) !important;
+            color: white !important;
+        }
+
+        .track-newbestfriend:hover {
+            background: linear-gradient(135deg, #ee3b18 0%, #c43c0f 50%, #621d05 100%) !important;
+            color: white !important;
+        }
+    </style>
+</head>
+<body>
+    <header id="header" class="fixed w-full z-50 bg-opacity-80 backdrop-blur-md bg-black">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+          <div class="logo">
+            <a href="index.html">
+              <img class="IzNameimg" src="assets/img/IzName.png" alt="Logo">
+            </a>
+          </div>
+        <!-- End Logo -->
+          <nav id="navbar" class="homenav navbar order-last order-lg-0">
+            <ul class="hidden md:flex items-center text-white font-semibold">
+              <!--<li><a class="active" href="index.html">home</a></li>-->
+              <li><a href="music.html">MUSIC</a></li>
+              <li><a href="merch.html">MERCH</a></li>
+              <li><a href="tour.html">TOUR</a></li>
+              <li><a href="https://linktr.ee/izzyarthursmusic" target="_blank">ARCHIVE</a></li>
+              <li><a href="lyrics.html">LYRICS</a></li>
+              <li><a class="active" href="EPK.html">EPK</a></li>
+            </ul>
+              <!--<i class="home-bi bi-list text-3xl font-bold mobile-nav-toggle"></i>-->
+          </nav><!-- .navbar -->
+      
+          <div class="header-social-links hidden lg:flex">
+            <a href="https://www.instagram.com/izzyarthursmusic/" class="instagram social-icon text-xl"><i class="home-bi bi-instagram"></i></a>
+            <a href="https://www.youtube.com/@izzyarthurs" class="youtube social-icon text-xl"><i class="home-bi bi-youtube"></i></a>
+            <a href="https://www.facebook.com/share/1AJ532xJxM/?mibextid=wwXIfr" class="facebook social-icon text-xl"><i class="home-bi bi-facebook"></i></a>
+            <a href="https://open.spotify.com/artist/1bQarg3sndI9WLfOdhJhFe?si=fMn0-0AuQeOF2ZLXz35VPw" class="spotify social-icon text-xl"><i class="home-bi bi-spotify"></i></a>
+          </div>
+      
+          <!-- Mobile Menu Button -->
+          <button class="md:hidden mobile-menu-btn" style="position: fixed; right: 20px; color: white;">
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
+        </div>
+        <!-- Mobile Menu -->
+          <div class="mobile-menu hidden flex flex-col bg-black bg-opacity-95 py-4 px-4" style="color: white;">
+            <ul class="space-y-4">
+              <li><a href="music.html">MUSIC</a></li>
+              <li><a href="merch.html">MERCH</a></li>
+              <li><a href="tour.html">TOUR</a></li>
+              <li><a href="https://linktr.ee/izzyarthursmusic" target="_blank">ARCHIVE</a></li>
+              <li><a href="lyrics.html">LYRICS</a></li>
+              <li><a class="active" href="EPK.html">EPK</a></li>
+            </ul>
+            <div class="header-social-links flex space-x-4 mt-4 pt-4 border-t border-gray-800">
+              <a href="https://www.instagram.com/izzyarthursmusic/" class="instagram social-icon text-xl"><i class="home-bi bi-instagram"></i></a>
+              <a href="https://www.youtube.com/@izzyarthurs" class="youtube social-icon text-xl"><i class="home-bi bi-youtube"></i></a>
+              <a href="https://www.facebook.com/share/1AJ532xJxM/?mibextid=wwXIfr" class="facebook social-icon text-xl"><i class="home-bi bi-facebook"></i></a>
+              <a href="https://open.spotify.com/artist/1bQarg3sndI9WLfOdhJhFe?si=fMn0-0AuQeOF2ZLXz35VPw" class="spotify social-icon text-xl"><i class="home-bi bi-spotify"></i></a>
+            </div>
+          </div>
+      </header>
+
+    <main class="pt-24 pb-20">
+        <!-- Hero Section -->
+        <div class="bg-gradient-to-r from-purple-900 to-pink-900 py-16 mb-12">
+            <div class="container mx-auto px-4 text-center text-white">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4 fade-in">ELECTRONIC PRESS KIT</h1>
+                <p class="text-lg md:text-xl max-w-2xl mx-auto fade-in" style="animation-delay: 0.2s">Everything you need to know about Izzy Arthurs - biography, media assets, technical requirements, and contact information.</p>
+                
+                <!-- Quick Download Button -->
+                <div class="mt-8 fade-in" style="animation-delay: 0.3s">
+                    <a href="assets/downloads/IzzyAruthursEPK.pdf" download="IzzyArthursEPK.pdf" class="download-btn bg-white text-purple-900 px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition">
+                        <i class="fas fa-download mr-2"></i> DOWNLOAD COMPLETE EPK
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container mx-auto px-4">
+            <!-- Quick Stats -->
+            <!--
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 fade-in" style="animation-delay: 0.4s">
+                <div class="stat-card">
+                    <div class="text-3xl font-bold mb-2">150+</div>
+                    <div class="text-sm opacity-90">Monthly Listeners</div>
+                </div>
+                <div class="stat-card">
+                    <div class="text-3xl font-bold mb-2">4</div>
+                    <div class="text-sm opacity-90">Released Tracks</div>
+                </div>
+                <div class="stat-card">
+                    <div class="text-3xl font-bold mb-2">5+</div>
+                    <div class="text-sm opacity-90">Live Shows</div>
+                </div>
+                <div class="stat-card">
+                    <div class="text-3xl font-bold mb-2">2025</div>
+                    <div class="text-sm opacity-90">Debut EP</div>
+                </div>
+            </div>
+            -->
+            <!-- Artistgraphy -->
+            <div class="epk-section p-8 mb-8 fade-in" style="animation-delay: 0.5s">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-3xl font-bold">ARTIST BIOGRAPHY</h2>
+                    <!--
+                    <button class="download-btn bg-gray-800 text-white px-4 py-2 rounded-full text-sm hover:bg-gray-700">
+                        <i class="fas fa-download mr-2"></i> DOWNLOAD BIO
+                    </button>
+                    -->
+                    <a href="assets/downloads/IzzyAruthursBio.pdf" download="IzzyAruthursBio.pdf" class="download-btn bg-gray-800 text-white px-4 py-2 rounded-full text-sm hover:bg-gray-700">
+                        <i class="fas fa-download mr-2"></i> DOWNLOAD BIO
+                    </a>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="md:col-span-2">
+                        <h3 class="text-xl font-bold mb-4">Condensed Bio</h3>
+                        <p class="mb-6 text-gray-700">
+                            Tennessee singer-songwriter and recording artist Izzy Arthurs commands attention with raw authenticity and a magnetic stage presence, captivating audiences with her genre-bending sound and high-octane live shows. Backed by a tight-knit 4-piece band, Arthurs weaves intimate storytelling with alternative rock and indie-pop sensibilities, all while staying true to her roots.
+                        </p>
+                        
+                        <h3 class="text-xl font-bold mb-4">Medium Bio</h3>
+                        <p class="mb-6 text-gray-700">
+                            Tennessee singer-songwriter Izzy Arthurs commands attention with raw authenticity and a magnetic stage presence, captivating audiences with her genre-bending sound. Backed by an elite 4-piece band, Arthurs weaves intimate storytelling with alternative rock and indie-pop sensibilities. Her performances are an electric intersection where vulnerability meets power — turning concert halls into sacred spaces where even the back row feels pulled into her orbit. With each show, she proves herself as an artist who doesn't just perform, she creates moments of genuine connection with her audience in an eruption of adrenaline, sweat, glitter, and joy.
+                        </p>
+                        <!--
+                        <p class="mb-6 text-gray-700">
+                            Her debut EP "First EP" (2023) features four compelling tracks including "The Skeptic," "Orbiting," "Crystal," and "New Best Friend." Each song showcases her ability to blend introspective lyrics with memorable melodies, creating music that resonates with listeners on both emotional and musical levels. With over 50,000 monthly listeners and growing, Izzy has established herself as an independent artist with significant potential in the contemporary music landscape.
+                        </p>
+                        -->
+                    </div>
+                    
+                    <div>
+                        <img src="assets/img/EPKbio.jpeg" alt="Izzy Arthurs Portrait" class="rounded-lg shadow-lg mb-4" style="width: 70%; margin-left: 50px;">
+                        
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <h4 class="font-bold mb-3">QUICK FACTS</h4>
+                            <ul class="space-y-2 text-sm">
+                                <li><strong>Genre:</strong> Indie Pop, Alternative Rock</li>
+                                <li><strong>Debut:</strong> 2025</li>
+                                <li><strong>Based:</strong> Tennessee</li>
+                                <li><strong>Instruments:</strong> Vocals, Guitar, Piano</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Press Coverage -->
+            <div class="epk-section p-8 mb-8 fade-in" style="animation-delay: 0.6s">
+                <h2 class="text-3xl font-bold mb-6">PRESS COVERAGE</h2>
+                
+                <div class="press-quote">
+                    <p class="mb-2">IZZY ARTHURS WINS SONGWRITERS WEEK SHOWCASE FOR MEMPHIS REGION</p>
+                    <cite class="text-sm text-gray-600">— <a href="https://www.radionwtn.com/2024/02/27/izzy-arthurs-wins-songwriters-week-showcase-for-memphis-region/" target="_blank" class="text-pink-600 hover:underline">radioNWTN</a></cite>
+                </div>
+                
+                <div class="press-quote">
+                    <p class="mb-2">"...Arthurs packed local music venue Proud Larry’s, drawing a crowd that stretched down the block. Fans were eager to experience her unique sound—a blend of contemporary pop and alternative rock, like a love child of Chappell Roan and Tori Amos."</p>
+                    <cite class="text-sm text-gray-600">— <a href="https://oxfordmag.com/izzy-arthurs-takes-oxfords-music-scene-by-storm/" target="_blank" class="text-pink-600 hover:underline">Oxford Magazine</a></cite>
+                </div>
+                
+                <div class="press-quote">
+                    <p class="mb-2">"...deeply personal, evolving, and emotionally resonant..."</p>
+                    <cite class="text-sm text-gray-600">— <a href="https://umsquaremagazine.com/lifestyle/inside-oxford-music-scene" target="_blank" class="text-pink-600 hover:underline">Square Magazine</a></cite>
+                </div>
+                
+                <!-- Additional quotes (initially hidden) -->
+                <div id="additionalQuotes" class="hidden">
+                    <!--
+                    <div class="bg-gray-50 p-6 rounded-lg text-center">
+                        <i class="fas fa-newspaper text-4xl text-gray-400 mb-4"></i>
+                        <h4 class="text-lg font-semibold text-gray-600 mb-2">More Press Coverage Coming Soon</h4>
+                        <p class="text-gray-500">As Izzy continues to make waves in the music scene, additional press quotes and reviews will be added here. Check back for updates!</p>
+                    </div>
+                    -->
+                    <div class="press-quote">
+                        <p class="mb-2">"Arthurs made a big impression on the judges during a Tennessee Songwriters Week competition"</p>
+                        <cite class="text-sm text-gray-600">— <a href="https://www.parispi.net/news/local_news/article_6578a840-d66d-11ee-8aa5-4faea5d62fb9.html" target="_blank" class="text-pink-600 hover:underline">The Paris Post-Intelligencer</a></cite>
+                    </div>
+
+                    <div class="press-quote">
+                        <p class="mb-2">"Vibrant and Electric"</p>
+                        <cite class="text-sm text-gray-600">— <a href="https://thedmonline.com/vibrant-and-electric-izzy-arthurs-dazzles-proud-larrys-saturday-night/" target="_blank" class="text-pink-600 hover:underline">The Daily Mississipian</a></cite>
+                    </div>
+                </div>
+                
+                <div class="mt-6">
+                    <button id="toggleQuotes" class="download-btn bg-gray-800 text-white px-4 py-2 rounded-full text-sm hover:bg-gray-700">
+                        <i class="fas fa-plus mr-2"></i> <span id="quotesButtonText">READ MORE QUOTES</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Music & Streaming -->
+            <div class="epk-section p-8 mb-8 fade-in" style="animation-delay: 0.7s">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-3xl font-bold">MUSIC & STREAMING</h2>
+                    <a href="https://open.spotify.com/artist/1bQarg3sndI9WLfOdhJhFe?si=fMn0-0AuQeOF2ZLXz35VPw" target="_blank" class="download-btn bg-gray-800 text-white px-4 py-2 rounded-full text-sm hover:bg-gray-700">
+                        <i class="fas fa-headphones mr-2"></i> LISTEN ON SPOTIFY
+                    </a>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">LIVE EP PROJECT (2025)</h3>
+                        <div class="space-y-3">
+                            <div class="track-skeptic flex justify-between items-center p-3 bg-gray-50 rounded transition-all duration-300 cursor-pointer">
+                                <div>
+                                    <div class="font-semibold skepticfont">The Skeptic</div>
+                                    <div class="text-sm text-gray-600 hover-text-white">Track 1 • 4:45</div>
+                                </div>
+                                <!--
+                                <button class="text-pink-600 hover:text-white transition-colors">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                                -->
+                            </div>
+                            <div class="track-orbiting flex justify-between items-center p-3 bg-gray-50 rounded transition-all duration-300 cursor-pointer">
+                                <div>
+                                    <div class="font-semibold orbitingfont" style="font-size: 20px;">Orbiting</div>
+                                    <div class="text-sm text-gray-600 hover-text-white">Track 2 • 4:48</div>
+                                </div>
+                                <!--
+                                <button class="text-pink-600 hover:text-white transition-colors">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                                -->
+                            </div>
+                            <div class="track-crystal flex justify-between items-center p-3 bg-gray-50 rounded transition-all duration-300 cursor-pointer">
+                                <div>
+                                    <div class="font-semibold crystalfont">Crystal</div>
+                                    <div class="text-sm text-gray-600 hover-text-white">Track 3 • 4:20</div>
+                                </div>
+                                <!--
+                                <button class="text-pink-600 hover:text-white transition-colors">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                                -->
+                            </div>
+                            <div class="track-newbestfriend flex justify-between items-center p-3 bg-gray-50 rounded transition-all duration-300 cursor-pointer">
+                                <div>
+                                    <div class="font-semibold newbffont">New Best Friend</div>
+                                    <div class="text-sm text-gray-600 hover-text-white">Track 4 • 3:47</div>
+                                </div>
+                                <!--
+                                <button class="text-pink-600 hover:text-white transition-colors">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                                -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">STREAMING PLATFORMS</h3>
+                        <div class="space-y-3">
+                            <a href="https://open.spotify.com/artist/1bQarg3sndI9WLfOdhJhFe?si=fMn0-0AuQeOF2ZLXz35VPw" class="flex items-center p-3 bg-green-50 rounded hover:bg-green-100 transition">
+                                <i class="fab fa-spotify text-green-600 text-2xl mr-4"></i>
+                                <div>
+                                    <div class="font-semibold">Spotify</div>
+                                    <!--<div class="text-sm text-gray-600">50,000+ monthly listeners</div>-->
+                                    <div class="text-sm text-gray-600">Full catalog available</div>
+                                </div>
+                            </a>
+                            <a href="https://www.youtube.com/@izzyarthurs" class="flex items-center p-3 bg-red-50 rounded hover:bg-red-100 transition">
+                                <i class="fab fa-youtube text-red-600 text-2xl mr-4"></i>
+                                <div>
+                                    <div class="font-semibold">YouTube Music</div>
+                                    <div class="text-sm text-gray-600">Official music videos</div>
+                                </div>
+                            </a>
+                            <!--
+                            <a href="#" class="flex items-center p-3 bg-gray-50 rounded hover:bg-gray-100 transition">
+                                <i class="fab fa-apple text-gray-600 text-2xl mr-4"></i>
+                                <div>
+                                    <div class="font-semibold">Apple Music</div>
+                                    <div class="text-sm text-gray-600">Full catalog available</div>
+                                </div>
+                            </a>
+                            -->
+                        </div>
+                        
+
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Photos & Media -->
+            <div class="epk-section p-8 mb-8 fade-in" style="animation-delay: 0.8s">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-3xl font-bold">PHOTOS & MEDIA</h2>
+                    <a href="assets/downloads/allPics.zip" download="Izzy_Arthurs_Photos.zip" class="download-btn bg-gray-800 text-white px-4 py-2 rounded-full text-sm hover:bg-gray-700">
+                        <i class="fas fa-download mr-2"></i> DOWNLOAD ALL PHOTOS
+                    </a>                      
+                </div>
+                
+                <div class="photo-grid">
+                    <div class="photo-item">
+                        <img src="assets/downloads/allPics/EPKphoto1.JPG" alt="Portrait 1">
+                        <div class="photo-overlay">
+                            <!--
+                            <button class="bg-white text-black px-4 py-2 rounded-full text-sm">
+                                <i class="fas fa-download mr-2"></i> HIGH RES
+                            </button>
+                            -->
+                            <a href="assets/downloads/allPics/EPKphoto1.JPG" download="EPKphoto1.JPG" class="bg-white text-black px-4 py-2 rounded-full text-sm">
+                                <i class="fas fa-download mr-2"></i> HIGH RES
+                            </a>
+                        </div>
+                    </div>
+                    <div class="photo-item">
+                        <img src="assets/downloads/allPics/redStage.png" alt="Live Performance">
+                        <div class="photo-overlay">
+                            <a href="assets/downloads/allPics/redStage.png" download="IzStage(red).png" class="bg-white text-black px-4 py-2 rounded-full text-sm">
+                                <i class="fas fa-download mr-2"></i> HIGH RES
+                            </a>
+                        </div>
+                    </div>
+                    <div class="photo-item">
+                        <img src="assets/downloads/allPics/purpleHaze(skeptic).png" alt="Studio Session">
+                        <div class="photo-overlay">
+                            <a href="assets/downloads/allPics/purpleHaze(skeptic).png" download="IzPurpleHaze(skeptic).png" class="bg-white text-black px-4 py-2 rounded-full text-sm">
+                                <i class="fas fa-download mr-2"></i> HIGH RES
+                            </a>
+                        </div>
+                    </div>
+                    <div class="photo-item">
+                        <img src="assets/downloads/allPics/EPKphoto2.JPG" alt="Portrait 2">
+                        <div class="photo-overlay">
+                            <a href="assets/downloads/allPics/EPKphoto2.JPG" download="EPKphoto4.JPG" class="bg-white text-black px-4 py-2 rounded-full text-sm">
+                                <i class="fas fa-download mr-2"></i> HIGH RES
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-lg font-bold mb-3">LOGOS & ARTWORK</h3>
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center p-3 bg-gray-50 rounded">
+                                <span>Artist Logo (PNG)</span>
+                                <a href="assets/img/IzName.png" download="IzName.png" class="text-pink-600 hover:text-pink-800">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                            </div>
+                            <div class="flex justify-between items-center p-3 bg-gray-50 rounded">
+                                <span>Artist Condensed Logo</span>
+                                <a href="assets/img/favicon.png" download="IzFavicon.png" class="text-pink-600 hover:text-pink-800">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                            </div>
+                            <div class="flex justify-between items-center p-3 bg-gray-50 rounded">
+                                <span>Poster Design</span>
+                                <a href="assets/img/brightName.jpg" download="IzPoster(red).heic" class="text-pink-600 hover:text-pink-800">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-bold mb-3">VIDEO CONTENT</h3>
+                        <div class="space-y-2">
+                            <!-- Live Performance Reel -->
+                            <div>
+                                <div class="flex justify-between items-center p-3 bg-gray-50 rounded cursor-pointer hover:bg-gray-100 transition" onclick="toggleVideo('live-performance')">
+                                    <span class="font-medium">Live Performance</span>
+                                    <i id="live-performance-icon" class="fas fa-chevron-down text-pink-600"></i>
+                                </div>
+                                <div id="live-performance-video" class="hidden mt-2 p-4 bg-gray-100 rounded">
+                                    <div class="aspect-video">
+                                        <iframe 
+                                            width="100%" 
+                                            height="100%" 
+                                            src="https://www.youtube.com/embed/FjBLzUsiutA?si=YE5IJjsH4v6DkQ0J" 
+                                            title="YouTube video player" 
+                                            frameborder="0" 
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                            referrerpolicy="strict-origin-when-cross-origin" 
+                                            allowfullscreen
+                                            class="rounded">
+                                        </iframe>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Behind the Scenes -->
+                            <div>
+                                <div class="flex justify-between items-center p-3 bg-gray-50 rounded cursor-pointer hover:bg-gray-100 transition" onclick="toggleVideo('behind-scenes')">
+                                    <span class="font-medium">Music Video</span>
+                                    <i id="behind-scenes-icon" class="fas fa-chevron-down text-pink-600"></i>
+                                </div>
+                                <div id="behind-scenes-video" class="hidden mt-2 p-4 bg-gray-100 rounded">
+                                    <div class="aspect-video">
+                                        <iframe 
+                                            width="100%" 
+                                            height="100%" 
+                                            src="https://www.youtube.com/embed/Y_zQreTflYo?si=H2rJ-j_rIvyuzyul" 
+                                            title="YouTube video player" 
+                                            frameborder="0" 
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                            allowfullscreen
+                                            class="rounded">
+                                        </iframe>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Interview Clips -->
+                            <div>
+                                <div class="flex justify-between items-center p-3 bg-gray-50 rounded cursor-pointer hover:bg-gray-100 transition" onclick="toggleVideo('interview-clips')">
+                                    <span class="font-medium">Interview Clips</span>
+                                    <i id="interview-clips-icon" class="fas fa-chevron-down text-pink-600"></i>
+                                </div>
+                                <div id="interview-clips-video" class="hidden mt-2 p-4 bg-gray-100 rounded">
+                                    <div class="aspect-video">
+                                        <iframe 
+                                            width="100%" 
+                                            height="100%" 
+                                            src="https://www.youtube.com/embed/2E053yG3658?si=3zwhIfTy6S1LZD6z" 
+                                            title="YouTube video player" 
+                                            frameborder="0" 
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                            referrerpolicy="strict-origin-when-cross-origin" 
+                                            allowfullscreen
+                                            class="rounded">
+                                        </iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Technical Rider -->
+            <div class="epk-section p-8 mb-8 fade-in" style="animation-delay: 0.9s">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-3xl font-bold">TECHNICAL RIDER</h2>
+                    <a href="assets/downloads/Stage Plot Fall 2025-4.jpg" download="Stage Plot Fall 2025-4.jpg" class="download-btn bg-gray-800 text-white px-4 py-2 rounded-full text-sm hover:bg-gray-700">
+                        <i class="fas fa-download mr-2"></i> DOWNLOAD FULL RIDER
+                    </a>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">INPUT LIST</h3>
+                        <div class="bg-gray-50 p-4 rounded mb-6">
+                            <div class="grid grid-cols-1 gap-2 text-sm">
+                                <div class="grid grid-cols-3 gap-4 font-semibold border-b pb-2 mb-2">
+                                    <span>Channel</span>
+                                    <span>Instrument</span>
+                                    <span>Type</span>
+                                </div>
+                                
+                                <!-- Drums -->
+                                <div class="grid grid-cols-3 gap-4 py-1 bg-blue-50 px-2 rounded">
+                                    <span class="font-medium">1</span>
+                                    <span>Kick</span>
+                                    <span class="text-gray-600">Mic</span>
+                                </div>
+                                <div class="grid grid-cols-3 gap-4 py-1 bg-blue-50 px-2 rounded">
+                                    <span class="font-medium">2</span>
+                                    <span>Snare</span>
+                                    <span class="text-gray-600">Mic</span>
+                                </div>
+                                <div class="grid grid-cols-3 gap-4 py-1 bg-blue-50 px-2 rounded">
+                                    <span class="font-medium">3</span>
+                                    <span>Tom 1</span>
+                                    <span class="text-gray-600">Mic</span>
+                                </div>
+                                <div class="grid grid-cols-3 gap-4 py-1 bg-blue-50 px-2 rounded">
+                                    <span class="font-medium">4</span>
+                                    <span>Tom 2</span>
+                                    <span class="text-gray-600">Mic</span>
+                                </div>
+                                <div class="grid grid-cols-3 gap-4 py-1 bg-blue-50 px-2 rounded">
+                                    <span class="font-medium">5</span>
+                                    <span>Tom 3</span>
+                                    <span class="text-gray-600">Mic</span>
+                                </div>
+                                <div class="grid grid-cols-3 gap-4 py-1 bg-blue-50 px-2 rounded">
+                                    <span class="font-medium">6</span>
+                                    <span>OH 1</span>
+                                    <span class="text-gray-600">Overhead Mic</span>
+                                </div>
+                                <div class="grid grid-cols-3 gap-4 py-1 bg-blue-50 px-2 rounded">
+                                    <span class="font-medium">7</span>
+                                    <span>OH 2</span>
+                                    <span class="text-gray-600">Overhead Mic</span>
+                                </div>
+                                
+                                <!-- Bass & Keys -->
+                                <div class="grid grid-cols-3 gap-4 py-1 bg-green-50 px-2 rounded">
+                                    <span class="font-medium">8</span>
+                                    <span>Bass</span>
+                                    <span class="text-gray-600">Amp/SM57</span>
+                                </div>
+                                <div class="grid grid-cols-3 gap-4 py-1 bg-green-50 px-2 rounded">
+                                    <span class="font-medium">9</span>
+                                    <span>Synth Bass</span>
+                                    <span class="text-gray-600">DI</span>
+                                </div>
+                                <div class="grid grid-cols-3 gap-4 py-1 bg-green-50 px-2 rounded">
+                                    <span class="font-medium">12</span>
+                                    <span>Keyboard</span>
+                                    <span class="text-gray-600">DI</span>
+                                </div>
+                                
+                                <!-- Guitars -->
+                                <div class="grid grid-cols-3 gap-4 py-1 bg-yellow-50 px-2 rounded">
+                                    <span class="font-medium">10</span>
+                                    <span>Electric Guitar</span>
+                                    <span class="text-gray-600">Amp/SM57</span>
+                                </div>
+                                <div class="grid grid-cols-3 gap-4 py-1 bg-yellow-50 px-2 rounded">
+                                    <span class="font-medium">11</span>
+                                    <span>Electric Guitar 2</span>
+                                    <span class="text-gray-600">Amp/SM57</span>
+                                </div>
+                                <div class="grid grid-cols-3 gap-4 py-1 bg-yellow-50 px-2 rounded">
+                                    <span class="font-medium">13</span>
+                                    <span>Acoustic</span>
+                                    <span class="text-gray-600">DI</span>
+                                </div>
+                                
+                                <!-- Vocals -->
+                                <div class="grid grid-cols-3 gap-4 py-1 bg-pink-50 px-2 rounded">
+                                    <span class="font-medium">14</span>
+                                    <span>Main Vocal</span>
+                                    <span class="text-gray-600">SM58/Beta58</span>
+                                </div>
+                                <div class="grid grid-cols-3 gap-4 py-1 bg-pink-50 px-2 rounded">
+                                    <span class="font-medium">15</span>
+                                    <span>BGV</span>
+                                    <span class="text-gray-600">SM58</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                    <div>
+                     <!-- Stage representation -->
+                     <h3 class="text-xl font-bold mb-4">STAGE PLOT</h3>
+                     <div class="bg-gray-100 p-4 rounded mb-4">
+                        
+                             <!-- REPLACE THIS IMAGE SOURCE WITH YOUR STAGE PLOT -->
+                             <img src="assets/img/StagePlot.jpg" alt="Izzy Arthurs Stage Plot" class="w-full h-auto mb-3 rounded border-2 border-gray-300">
+                             <div class="text-center mb-4">
+                                 <div class="bg-gray-800 text-white py-2 px-4 rounded text-sm font-bold">AUDIENCE</div>
+                             </div>
+                             <div class="text-xs text-gray-600 mt-2 text-center">
+                                 Stage plot showing 6-piece band setup with monitor positions
+                             </div>
+                         
+                     </div>
+                     </div>
+                    <!--
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">MONITOR REQUIREMENTS</h3>
+                        <div class="bg-gray-50 p-4 rounded mb-6">
+                            <h4 class="font-semibold mb-2">Monitor Mixes Needed (6 Total):</h4>
+                            <ul class="space-y-2 text-sm text-gray-700">
+                                <li>• <strong>Mix 1 - Izzy (Main Vocal):</strong> Lead vocal, acoustic guitar, drums, bass</li>
+                                <li>• <strong>Mix 2 - BGVs:</strong> Lead vocal, BGV, keys, drums</li>
+                                <li>• <strong>Mix 3 - Drums:</strong> Click track (if needed), bass, keys, guitars</li>
+                                <li>• <strong>Mix 4 - Bass Player:</strong> Bass, synth bass, drums, lead vocal</li>
+                                <li>• <strong>Mix 5 - Electric Guitar 1:</strong> Guitar 1, drums, bass, lead vocal</li>
+                                <li>• <strong>Mix 6 - Electric Guitar 2:</strong> Guitar 2, drums, bass, lead vocal</li>
+                            </ul>
+                            <p class="text-xs text-gray-600 mt-3"><em>Note: Keyboard player shares mix with BGVs or can have separate mix if console allows</em></p>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold mb-4">HOSPITALITY</h3>
+                        <div class="bg-gray-50 p-4 rounded mb-6">
+                            <h4 class="font-semibold mb-2">Green Room Requirements:</h4>
+                            <ul class="space-y-1 text-sm text-gray-700">
+                                <li>• Clean, private space for 5 people</li>
+                                <li>• Bottled water (room temperature)</li>
+                                <li>• Light snacks or fruit</li>
+                                <li>• Mirror and adequate lighting</li>
+                                <li>• WiFi access</li>
+                                <li>• Secure area for personal items</li>
+                            </ul>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold mb-4">LOAD-IN INFO</h3>
+                        <div class="bg-gray-50 p-4 rounded mb-6">
+                            <ul class="space-y-1 text-sm text-gray-700">
+                                <li>• <strong>Band Size:</strong> 5 members</li>
+                                <li>• <strong>Setup Time:</strong> 60 minutes</li>
+                                <li>• <strong>Sound Check:</strong> 30-45 minutes</li>
+                                <li>• <strong>Parking:</strong> 2 vehicles (van + car)</li>
+                                <li>• <strong>Load-in Access:</strong> Ground level preferred</li>
+                            </ul>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold mb-4">PERFORMANCE DETAILS</h3>
+                        <div class="bg-gray-50 p-4 rounded mb-6">
+                            <div class="space-y-2 text-gray-700 text-sm">
+                                <div><strong>Set Length:</strong> 45-60 minutes</div>
+                                <div><strong>Performance Type:</strong> Full band</div>
+                                <div><strong>Stage Size:</strong> Minimum 16' x 12'</div>
+                                <div><strong>Power:</strong> 8 standard outlets required</div>
+                                <div><strong>Ceiling Height:</strong> Minimum 10 feet</div>
+                            </div>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold mb-4 mt-6">BACKLINE REQUIREMENTS</h3>
+                        <div class="bg-gray-50 p-4 rounded mb-6">
+                            <div class="space-y-2 text-gray-700 text-sm">
+                                <div>• <strong>Drum Kit:</strong> Full kit with hardware (cymbals optional)</div>
+                                <div>• <strong>Bass 
+                                    :</strong> 300W+ head and 4x10 cab</div>
+                                <div>• <strong>Guitar Amps:</strong> 2x combo amps (50W+ each)</div>
+                                <div>• <strong>Keyboard Stand:</strong> Heavy duty, adjustable</div>
+                                <div>• <strong>DI Boxes:</strong> 4x active DI boxes</div>
+                            </div>
+                        </div>
+                    </div>
+                    -->
+                </div>
+            </div>
+            
+            <!-- Contact Information -->
+            <div class="epk-section p-8 mb-8 fade-in" style="animation-delay: 1.0s">
+                <h2 class="text-3xl font-bold mb-6">CONTACT INFORMATION</h2>
+                
+                <div class="flex justify-center">
+                    <div class="contact-card max-w-md">
+                        <i class="fas fa-envelope text-4xl mb-4 text-pink-600"></i>
+                        <h3 class="text-2xl font-bold mb-2">IZZY ARTHURS</h3>
+                        <p class="text-gray-600 mb-4">Booking, Press, Media & General Inquiries</p>
+                        <p class="font-semibold text-lg mb-2">izzyarthursmusicbooking@gmail.com</p>
+                        <p class="text-gray-600">@izzyarthursmusic | izzyarthurs.com</p>
+                    </div>
+                </div>
+                
+                <div class="mt-8 text-center">
+                    <p class="text-gray-600 mb-4">For immediate response, please specify "EPK REQUEST" in your subject line</p>
+                    <div class="flex justify-center space-x-6">
+                        <a href="https://www.instagram.com/izzyarthursmusic/" class="text-2xl text-gray-600 hover:text-pink-600 transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@izzyarthurs" class="text-2xl text-gray-600 hover:text-pink-600 transition">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://www.facebook.com/share/1AJ532xJxM/?mibextid=wwXIfr" class="text-2xl text-gray-600 hover:text-pink-600 transition">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://open.spotify.com/artist/1bQarg3sndI9WLfOdhJhFe?si=fMn0-0AuQeOF2ZLXz35VPw" class="text-2xl text-gray-600 hover:text-pink-600 transition">
+                            <i class="fab fa-spotify"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="bg-black py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h2 class="text-2xl font-bold text-white">IZZY ARTHURS</h2>
+                    <p class="text-gray-400 mt-2">SINGER/SONGWRITER</p>
+                </div>
+                
+                <div class="footer-social flex space-x-6 mb-6 md:mb-0">
+                  <a href="https://www.instagram.com/izzyarthursmusic/" class="instagram text-2xl"><i class="home-bi bi-instagram"></i></a>
+                  <a href="https://www.youtube.com/@izzyarthurs" class="youtube text-2xl"><i class="home-bi bi-youtube"></i></a>
+                  <a href="https://www.facebook.com/share/1AJ532xJxM/?mibextid=wwXIfr" class="facebook text-2xl"><i class="home-bi bi-facebook"></i></a>
+                  <a href="https://open.spotify.com/artist/1bQarg3sndI9WLfOdhJhFe?si=fMn0-0AuQeOF2ZLXz35VPw" class="spotify text-2xl"><i class="home-bi bi-spotify"></i></a>
+                </div>
+                
+                <div>
+                    <a href="#contact" class="text-white hover:underline">CONTACT</a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500 text-sm">
+                <p>© 2023 IZZY ARTHURS. ALL RIGHTS RESERVED.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-80 z-[1000] flex items-center justify-center hidden">
+        <div class="bg-gray-900 rounded-lg shadow-2xl w-full max-w-md mx-4 relative modal-content">
+            <!-- Close button -->
+            <button id="closeContactModal" class="absolute top-4 right-4 text-gray-400 hover:text-white transition">
+            <i class="fas fa-times text-xl"></i>
+            </button>
+            
+            <div class="p-8">
+                <h2 class="text-2xl text-white font-bold mb-6 text-center">CONTACT IZZY</h2>
+                <!--
+                <form id="contactForm" class="space-y-6 text-white">
+                    <div>
+                    <label for="name" class="block text-sm font-medium mb-2">NAME</label>
+                    <input type="text" id="name" name="name" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 text-white" required>
+                    </div>
+                    
+                    <div>
+                    <label for="email" class="block text-sm font-medium mb-2">EMAIL ADDRESS</label>
+                    <input type="email" id="email" name="email" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 text-white" required>
+                    </div>
+                    
+                    <div>
+                    <label for="comments" class="block text-sm font-medium mb-2">COMMENTS</label>
+                    <textarea id="comments" name="comments" rows="4" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 text-white resize-none" required></textarea>
+                    </div>
+                    
+                    <div class="text-center">
+                    <button type="submit" class="bg-pink-600 hover:bg-pink-700 text-white px-8 py-3 rounded-full font-bold transition">SEND</button>
+                    </div>
+                </form>
+                -->
+                <p class="mb-4 text-white">
+                    Please contact <a href="mailto:izzyarthursmusicbooking@gmail.com" class="text-pink-400 hover:underline">
+                    izzyarthursmusicbooking@gmail.com
+                    </a> for questions or comments.
+                </p>
+                <p class="text-white">
+                    Connect with Izzy via social media 
+                    <span class="font-semibold">@izzyarthursmusic</span>.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                console.log('Mobile Menu Btn clicked');
+                mobileMenu.classList.toggle('hidden');
+                });
+            }
+            
+            // Download button functionality (placeholder)
+            const downloadBtns = document.querySelectorAll('.download-btn:not(#toggleQuotes)');
+            
+            /*
+            downloadBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // In a real implementation, this would trigger actual downloads
+                    alert('Download functionality would be implemented here. This is a demo version.');
+                });
+            });
+            */
+            
+            // Toggle quotes functionality
+            const toggleQuotesBtn = document.getElementById('toggleQuotes');
+            const additionalQuotes = document.getElementById('additionalQuotes');
+            const quotesButtonText = document.getElementById('quotesButtonText');
+            
+            if (toggleQuotesBtn && additionalQuotes) {
+                toggleQuotesBtn.addEventListener('click', () => {
+                    if (additionalQuotes.classList.contains('hidden')) {
+                        additionalQuotes.classList.remove('hidden');
+                        quotesButtonText.textContent = 'SHOW FEWER QUOTES';
+                        toggleQuotesBtn.querySelector('i').className = 'fas fa-minus mr-2';
+                    } else {
+                        additionalQuotes.classList.add('hidden');
+                        quotesButtonText.textContent = 'READ MORE QUOTES';
+                        toggleQuotesBtn.querySelector('i').className = 'fas fa-plus mr-2';
+                    }
+                });
+            }
+            
+            // Photo download functionality
+            const photoDownloadBtns = document.querySelectorAll('.photo-overlay button');
+            
+            photoDownloadBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    alert('High resolution photo download would be implemented here.');
+                });
+            });
+            
+            // Play button functionality for music tracks
+            const playBtns = document.querySelectorAll('.fa-play');
+            
+            playBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // In a real implementation, this would play the actual track
+                    alert('Music player functionality would be implemented here.');
+                });
+            });
+            
+            // Contact Modal Functionality
+            const contactLinks = document.querySelectorAll('a[href="contact.html"], a[href="#contact"]');
+            const contactModal = document.getElementById('contactModal');
+            const closeContactModal = document.getElementById('closeContactModal');
+            const contactForm = document.getElementById('contactForm');
+            
+            // Open modal when contact link is clicked
+            contactLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    contactModal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+                });
+            });
+            
+            // Close modal when X button is clicked
+            closeContactModal.addEventListener('click', function() {
+                contactModal.classList.add('hidden');
+                document.body.style.overflow = ''; // Re-enable scrolling
+            });
+            
+            // Close modal when clicking outside the modal content
+            contactModal.addEventListener('click', function(e) {
+                if (e.target === contactModal) {
+                    contactModal.classList.add('hidden');
+                    document.body.style.overflow = '';
+                }
+            });
+            
+            // Handle form submission
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form values
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const comments = document.getElementById('comments').value;
+                
+                // Here you would typically send the data to a server
+                // For now, we'll just show a success message
+                alert(`Thank you, ${name}! Your message has been received. We'll get back to you soon.`);
+                
+                // Reset form and close modal
+                contactForm.reset();
+                contactModal.classList.add('hidden');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Video dropdown toggle function
+        function toggleVideo(videoId) {
+            const videoContainer = document.getElementById(videoId + '-video');
+            const icon = document.getElementById(videoId + '-icon');
+            
+            if (videoContainer.classList.contains('hidden')) {
+                // Show video
+                videoContainer.classList.remove('hidden');
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-up');
+            } else {
+                // Hide video
+                videoContainer.classList.add('hidden');
+                icon.classList.remove('fa-chevron-up');
+                icon.classList.add('fa-chevron-down');
+            }
+        }
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'967d79bb45b86c2c',t:'MTc1Mzk2ODg5MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
