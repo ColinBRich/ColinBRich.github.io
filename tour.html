@@ -35,25 +35,63 @@
   </style>
 </head>
 <style>
-  .coming-soon-container {
-  height: 70vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: black; /* Optional: sets background */
-  text-align: center;
-  padding-top: 15%;
+  :root {
+    --brand-dark: #1b1335;
+    --brand-accent: #db2777;
+    --brand-grad-a: #3b0a6a;
+    --brand-grad-b: #8b135a;
   }
-
-  .coming-soon-text {
-    color: white;
-    font-weight: bold;
-    font-size: 2rem;
+  body { color: #e5e7eb; background: #0f0a1f; }
+  .site-wrap { background: linear-gradient(180deg, #0f0a1f 0%, #160f2b 40%, #1d1439 100%); min-height: 100vh; }
+  .header-bg { background: rgba(15, 10, 31, 0.8); }
+  .brand-grad { background: linear-gradient(135deg, var(--brand-grad-a) 0%, var(--brand-grad-b) 100%); }
+  .search-card {
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    width: 60rem;
+  }
+  .card {
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+  }
+  .card:hover { border-color: rgba(255,255,255,0.16); }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: .5rem; font-weight: 700; border-radius: 9999px; transition: transform .2s ease, opacity .2s ease;
+  }
+  .btn:hover { transform: translateY(-1px); opacity: .95; }
+  .btn-primary { background: white; color: #2d0f55; }
+  .btn-dark { background: #1f1638; color: white; border: 1px solid rgba(255,255,255,0.12); }
+  .btn-pink { background: var(--brand-accent); color: white; }
+  .tag {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 9999px; padding: .25rem .6rem; font-size: .75rem; color: #e5e7eb;
+  }
+  .divider { border-top: 1px dashed rgba(255,255,255,0.12); }
+  .table-header { color: #cbd5e1; font-weight: 700; font-size: .8rem; letter-spacing: .04em; }
+  .input {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: #e5e7eb; border-radius: 10px; transition: border-color .2s ease;
+  }
+  .input:focus { outline: none; border-color: var(--brand-accent); }
+  .pill {
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14);
+    color: #e5e7eb; border-radius: 9999px; padding: .35rem .75rem; font-size: .85rem;
+  }
+  .status-upcoming { color: #34d399; }
+  .status-past { color: #9ca3af; }
+  .glow {
+    box-shadow: 0 10px 40px rgba(219,39,119,0.25), inset 0 1px 0 rgba(255,255,255,0.1);
   }
 </style>
 
-<body class="text-white overflow-x-hidden">
-
+<body class="site-wrap overflow-x-hidden">
  <!-- ======= Header ======= -->
  <header id="header" class="fixed w-full z-50 bg-opacity-80 backdrop-blur-md bg-black">
   <div class="container-fluid d-flex justify-content-between align-items-center">
@@ -74,7 +112,7 @@
         <li><a href="EPK.html">EPK</a></li>
       </ul>
         <!--<i class="home-bi bi-list text-3xl font-bold mobile-nav-toggle"></i>-->
-    </nav><!-- .navbar -->
+    </nav>
 
     <div class="header-social-links hidden lg:flex">
       <a href="https://www.instagram.com/izzyarthursmusic/" class="instagram social-icon text-xl"><i class="home-bi bi-instagram"></i></a>
@@ -105,14 +143,146 @@
         <a href="https://open.spotify.com/artist/1bQarg3sndI9WLfOdhJhFe?si=fMn0-0AuQeOF2ZLXz35VPw" class="spotify social-icon text-xl"><i class="home-bi bi-spotify"></i></a>
       </div>
     </div>
-  
 </header>
-<!-- End Header -->
 <br><br>
-<!--<img class="comingsoonimg" src="assets/img/Coming Soon.png" alt="">-->
-<div class="coming-soon-container">
-  <h1 class="coming-soon-text">Coming Soon</h1>
-</div>
+
+<!-- Hero (polished) -->
+<section class="pt-36 pb-14 brand-grad text-white">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="text-center">
+      <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-2">Live Shows</h1>
+      <div class="mt-6 text-white/70">New cities added soon. Check back for updates.</div>
+
+      <!-- Next shows strip (auto from data) -->
+      <div class="mt-6">
+        <div id="nextStripInner" class="flex flex-wrap justify-center gap-3"></div>
+      </div>
+
+      <!-- Single button -->
+      <!-- <div class="mt-8 flex justify-center">
+        <a href="#notify" class="btn btn-dark px-6 py-3"><i class="fa-regular fa-bell"></i> Get Notified</a>
+      </div> -->
+    </div>
+  </div>
+</section>
+
+<!-- Controls -->
+<section class="flex justify-center">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="card w-full max-w-5xl lg:w-[60rem] mx-auto p-4 md:p-6">
+      <div class=" flex flex-col md:flex-row gap-4 md:items-end md:justify-between">
+        <div class="w-full md:max-w-md">
+          <label class="block text-sm text-gray-300 mb-2">Search city or venue</label>
+          <div class="flex gap-3">
+            <input id="searchInput" class="input w-full px-4 py-3" placeholder="e.g. Nashville, Proud Larry’s"/>
+            <button id="clearSearch" class="btn btn-dark px-4 py-3" title="Clear"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <select id="monthFilter" class="input px-4 py-3">
+            <option value="">All Months</option>
+          </select>
+          <select id="regionFilter" class="input px-4 py-3">
+            <option value="">All Regions</option>
+            <option>USA</option>
+            <!-- <option>Canada</option>
+            <option>UK</option>
+            <option>EU</option> -->
+          </select>
+        </div>
+      </div>
+      <p class="text-xs text-gray-400 mt-3">Tip: You can combine search with month and region filters.</p>
+    </div>
+  </div>
+</section>
+
+ <!-- Upcoming Shows -->
+ <section id="upcoming" class="pb-10" style="padding-top: 30px !important">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="text-white text-2xl font-extrabold tracking-tight">Upcoming Shows</h2>
+      <span id="upcomingCount" class="tag">0 shows</span>
+    </div>
+    <div id="upcomingList" class="grid gap-4"></div>
+    <div id="noUpcoming" class="hidden card p-6 text-center text-gray-300 mt-4">
+      No shows match your filters. Try clearing the search or changing filters.
+    </div>
+    <!-- Show more/less -->
+    <div id="showMoreWrap" class="hidden mt-4 flex justify-center">
+      <button id="showMoreBtn" class="btn btn-dark px-6 py-3">
+        <i class="fa-solid fa-angles-down"></i> Show More
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Notify
+  <section id="notify" class="pb-20">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="card p-6 md:p-8">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+          <div>
+            <div class="pill inline-flex items-center gap-2 mb-3"><i class="fa-regular fa-bell"></i> Stay in the loop</div>
+            <h3 class="text-white text-xl md:text-2xl font-extrabold mb-1">Get notified when new shows are announced</h3>
+          </div>
+          <form id="notifyForm" class="w-full md:max-w-md">
+            <div class="flex gap-3">
+              <input id="notifyEmail" type="email" required class="input w-full px-4 py-3" placeholder="your@email.com"/>
+              <button class="btn btn-pink px-5 py-3" type="submit"><i class="fa-regular fa-paper-plane"></i> Notify</button>
+            </div>
+            <div id="notifyMsg" class="hidden text-green-300 text-sm mt-2">Thanks! You’ll be the first to know. (Demo)</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <footer class="bg-black py-12">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-6 md:mb-0">
+                <h2 class="text-2xl font-bold">IZZY ARTHURS</h2>
+                <p class="text-gray-400 mt-2">SINGER/SONGWRITER</p>
+            </div>
+            
+            <div class="footer-social flex space-x-6 mb-6 md:mb-0">
+              <a href="https://www.instagram.com/izzyarthursmusic/" class="instagram text-2xl"><i class="home-bi bi-instagram"></i></a>
+              <a href="https://www.youtube.com/@izzyarthurs" class="youtube text-2xl"><i class="home-bi bi-youtube"></i></a>
+              <a href="https://www.facebook.com/share/1AJ532xJxM/?mibextid=wwXIfr" class="facebook text-2xl"><i class="home-bi bi-facebook"></i></a>
+              <a href="https://open.spotify.com/artist/1bQarg3sndI9WLfOdhJhFe?si=fMn0-0AuQeOF2ZLXz35VPw" class="spotify text-2xl"><i class="home-bi bi-spotify"></i></a>
+            </div>
+            <div>
+                <a href="#contact" class="text-white-400 hover:underline">CONTACT</a>
+            </div>
+        </div>
+        <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500 text-sm">
+            <p>© 2025 IZZY ARTHURS. ALL RIGHTS RESERVED.</p>
+        </div>
+    </div>
+  </footer>
+
+  <!-- Contact Modal -->
+  <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-80 z-[1000] flex items-center justify-center hidden">
+    <div class="bg-gray-900 rounded-lg shadow-2xl w-full max-w-md mx-4 relative modal-content">
+        <!-- Close button -->
+        <button id="closeContactModal" class="absolute top-4 right-4 text-gray-400 hover:text-white transition">
+          <i class="fas fa-times text-xl"></i>
+        </button>
+        
+        <div class="p-8">
+          <h2 class="text-2xl text-white font-bold mb-6 text-center">CONTACT IZZY</h2>
+          <p class="mb-4 text-white">
+              Please contact <a href="mailto:izzyarthursmusicbooking@gmail.com" class="text-pink-400 hover:underline">
+              izzyarthursmusicbooking@gmail.com
+              </a> for questions or comments.
+          </p>
+          <p class="text-white">
+              Connect with Izzy via social media 
+              <span class="font-semibold">@izzyarthursmusic</span>.
+          </p>
+        </div>
+    </div>
+  </div>
 
 <div id="preloader"></div>
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
@@ -152,7 +322,7 @@
     const contactLinks = document.querySelectorAll('a[href="contact.html"], a[href="#contact"]');
     const contactModal = document.getElementById('contactModal');
     const closeContactModal = document.getElementById('closeContactModal');
-    const contactForm = document.getElementById('contactForm');
+    //const contactForm = document.getElementById('contactForm');
     
     // Open modal when contact link is clicked
     contactLinks.forEach(link => {
@@ -176,26 +346,227 @@
             document.body.style.overflow = '';
         }
     });
-    
+
     // Handle form submission
-    contactForm.addEventListener('submit', function(e) {
-      e.preventDefault();
+    // contactForm.addEventListener('submit', function(e) {
+    //   e.preventDefault();
       
-      // Get form values
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const comments = document.getElementById('comments').value;
+    //   // Get form values
+    //   const name = document.getElementById('name').value;
+    //   const email = document.getElementById('email').value;
+    //   const comments = document.getElementById('comments').value;
       
-      // Here you would typically send the data to a server
-      // For now, we'll just show a success message
-      alert(`Thank you, ${name}! Your message has been received. We'll get back to you soon.`);
+    //   // Here you would typically send the data to a server
+    //   // For now, we'll just show a success message
+    //   alert(`Thank you, ${name}! Your message has been received. We'll get back to you soon.`);
       
-      // Reset form and close modal
-      contactForm.reset();
-      contactModal.classList.add('hidden');
-      document.body.style.overflow = '';
+    //   // Reset form and close modal
+    //   contactForm.reset();
+    //   contactModal.classList.add('hidden');
+    //   document.body.style.overflow = '';
+    // });
+
+    // Init filters
+    initMonthFilter();
+    document.getElementById('searchInput').addEventListener('input', applyFilters);
+    document.getElementById('clearSearch').addEventListener('click', ()=>{
+      document.getElementById('searchInput').value='';
+      applyFilters();
+    });
+    document.getElementById('monthFilter').addEventListener('change', applyFilters);
+    document.getElementById('regionFilter').addEventListener('change', applyFilters);
+
+    // Notify (demo)
+    //   document.getElementById('notifyForm').addEventListener('submit', (e)=>{
+    //     e.preventDefault();
+    //     document.getElementById('notifyMsg').classList.remove('hidden');
+    //     e.target.reset();
+    //   });
+
+    // Show More button
+    document.getElementById('showMoreBtn').addEventListener('click', ()=>{
+      showAllUpcoming = !showAllUpcoming;
+      applyFilters();
+      // Smooth scroll to the top of the upcoming section when collapsing
+      if (!showAllUpcoming) {
+        document.getElementById('upcoming').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     });
 
+    // Initial render
+    applyFilters();
+    renderNextStrip();
+  });
+
+  const shows = [
+    // Upcoming
+    { id: 'u1', date: '2025-09-25', city: 'Oxford, MS', country: 'USA', region: 'USA', venue: 'Thacker Mountain Radio Show (Powerhouse)', status: 'upcoming', doors: '', show: '6:00 PM', price: 22, link: '#', note: '' },
+    { id: 'u2', date: '2025-10-23', city: 'Oxford, MS', country: 'USA', region: 'USA', venue: "Proud Larry's", status: 'upcoming', doors: '7:00 PM', show: '9:00 PM', price: 25, link: '#', note: '' },
+    { id: 'u3', date: '2025-10-25', city: 'Oxford, MS', country: 'USA', region: 'USA', venue: 'University of Mississippi Ford Center', status: 'upcoming', doors: '', show: '', price: 24, link: '#', note: '' },
+    { id: 'u4', date: '2025-10-31', city: 'Clarksville, TN', country: 'USA', region: 'USA', venue: 'Flamingo Valley', status: 'upcoming', doors: '', show: '', price: 26, link: '#', note: '' },
+    { id: 'u5', date: '2025-11-08', city: 'St. Louis, MO', country: 'USA', region: 'USA', venue: 'TBD', status: 'upcoming', doors: '', show: '', price: 26, link: '#', note: '' },
+    { id: 'u6', date: '2025-11-09', city: 'Memphis, TN', country: 'USA', region: 'USA', venue: 'Lamplighter', status: 'upcoming', doors: '', show: '', price: 26, link: '#', note: '' },
+    { id: 'u7', date: '2025-11-15', city: 'Little Rock, AR', country: 'USA', region: 'USA', venue: 'TBD', status: 'upcoming', doors: '', show: '', price: 26, link: '#', note: '' },
+    { id: 'u8', date: '2025-11-23', city: 'Memphis, TN', country: 'USA', region: 'USA', venue: 'Haven Haus', status: 'upcoming', doors: '', show: '', price: 26, link: '#', note: '' },
+    //Past
+  ];
+
+  // State
+  let showAllUpcoming = false;
+
+  // Utilities
+  const fmtDate = (iso) => {
+    const d = new Date(iso + 'T12:00:00');
+    return d.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
+  };
+  const monthKey = (iso) => {
+    const d = new Date(iso + 'T12:00:00');
+    return d.toLocaleDateString(undefined, { month: 'long', year: 'numeric' });
+  };
+  const buildICS = (show) => {
+    const start = new Date(show.date + 'T20:00:00'); // 8pm local placeholder
+    const end = new Date(start.getTime() + 2*60*60*1000);
+    const dt = (d)=>d.toISOString().replace(/[-:]/g,'').split('.')[0] + 'Z';
+    const title = `Izzy Arthurs — ${show.venue}`;
+    const loc = `${show.venue}, ${show.city}, ${show.country}`;
+    const desc = `Izzy Arthurs live at ${show.venue}. Doors ${show.doors || '—'}, Show ${show.show || '—'}.`;
+    const ics = [
+      'BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Izzy Arthurs//Tour//EN','BEGIN:VEVENT',
+      `UID:${show.id}@izzyarthurs.com`,
+      `DTSTAMP:${dt(new Date())}`,
+      `DTSTART:${dt(start)}`,
+      `DTEND:${dt(end)}`,
+      `SUMMARY:${title}`,
+      `DESCRIPTION:${desc}`,
+      `LOCATION:${loc}`,
+      'END:VEVENT','END:VCALENDAR'
+    ].join('\r\n');
+    const blob = new Blob([ics], {type:'text/calendar'});
+    return URL.createObjectURL(blob);
+  };
+
+  // Next shows strip
+  function renderNextStrip() {
+    const inner = document.getElementById('nextStripInner');
+    if (!inner) return;
+    inner.innerHTML = '';
+    const upcoming = shows
+      .filter(s => s.status === 'upcoming')
+      .sort((a,b) => a.date.localeCompare(b.date))
+      .slice(0, 3);
+    if (upcoming.length === 0) {
+      const msg = document.createElement('div');
+      msg.className = 'text-gray-200/80 text-sm';
+      msg.textContent = 'New dates coming soon.';
+      inner.appendChild(msg);
+      return;
+    }
+    upcoming.forEach(s => {
+      const item = document.createElement('div');
+      item.className = 'pill flex items-center gap-3 px-4 py-2';
+      const d = new Date(s.date + 'T12:00:00');
+      item.innerHTML = `
+        <span class="text-white font-extrabold">${d.toLocaleDateString(undefined,{month:'short'})} ${d.getDate()}</span>
+        <span class="text-white/70">${s.city}</span>
+        <span class="hidden sm:inline text-white/50">•</span>
+        <span class="hidden sm:inline text-white/90">${s.venue}</span>
+      `;
+      inner.appendChild(item);
+    });
+  }
+
+  // Render a single upcoming show card
+  function renderUpcomingCard(s) {
+    const hrefICS = buildICS(s);
+    const wrap = document.createElement('div');
+    wrap.className = 'card p-4 md:p-5 text-white';
+    wrap.innerHTML = `
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div class="flex items-start gap-4">
+          <div class="text-center">
+            <div class="text-sm text-gray-300">${new Date(s.date + 'T12:00:00').toLocaleDateString(undefined,{weekday:'short'})}</div>
+            <div class="text-2xl font-extrabold">${new Date(s.date + 'T12:00:00').getDate()}</div>
+            <div class="text-sm text-gray-300">${new Date(s.date + 'T12:00:00').toLocaleDateString(undefined,{month:'short'})}</div>
+          </div>
+          <div>
+            <div class="text-lg font-extrabold">${s.city} <span class="text-white/60">•</span> <span class="text-white/90">${s.venue}</span></div>
+            <div class="text-sm text-gray-300 mt-1">
+               Doors: ${s.doors || ' TBD'} • Show: ${s.show || ' TBD'}
+            </div>
+            ${s.note ? `<div class="mt-1 tag inline-flex">${s.note}</div>` : ''}
+          </div>
+        </div>
+        <div class="flex items-center gap-3 shrink-0">
+
+          <a href="${hrefICS}" download="IzzyArthurs_${s.city.replaceAll(' ','')}_${s.date}.ics" class="btn btn-dark px-4 py-2"><i class="fa-regular fa-calendar-plus"></i> Add</a>
+        </div>
+      </div>
+    `;
+    wrap.dataset.icsUrl = hrefICS;
+    return wrap;
+  }
+  // • <span class="status-upcoming">On sale</span>
+  //<a href="${s.link || '#'}" class="btn btn-primary px-4 py-2 glow"><i class="fa-solid fa-ticket"></i> Tickets</a>
+
+
+  // Filtering
+  function applyFilters() {
+      const q = document.getElementById('searchInput').value.trim().toLowerCase();
+    const month = document.getElementById('monthFilter').value;
+    const region = document.getElementById('regionFilter').value;
+
+    const isMatch = (s) => {
+      const t = `${s.city} ${s.venue} ${s.country}`.toLowerCase();
+      if (q && !t.includes(q)) return false;
+      if (month && monthKey(s.date) !== month) return false;
+      if (region && s.region !== region) return false;
+      return true;
+    };
+
+    // Upcoming
+    const upcomingWrap = document.getElementById('upcomingList');
+    upcomingWrap.innerHTML = '';
+    const baseUpcoming = shows.filter(s=>s.status==='upcoming' && isMatch(s))
+                              .sort((a,b)=>a.date.localeCompare(b.date));
+    const visibleUpcoming = showAllUpcoming ? baseUpcoming : baseUpcoming.slice(0,4);
+    visibleUpcoming.forEach(s=>upcomingWrap.appendChild(renderUpcomingCard(s)));
+
+    // Count label
+    document.getElementById('upcomingCount').textContent = `${baseUpcoming.length} show${baseUpcoming.length!==1?'s':''}`;
+    document.getElementById('noUpcoming').classList.toggle('hidden', baseUpcoming.length>0);
+
+    // Show More button visibility and label
+    const showMoreWrap = document.getElementById('showMoreWrap');
+    const showMoreBtn = document.getElementById('showMoreBtn');
+    if (baseUpcoming.length > 4) {
+      showMoreWrap.classList.remove('hidden');
+      showMoreBtn.innerHTML = showAllUpcoming
+        ? '<i class="fa-solid fa-angles-up"></i> Show Less'
+        : '<i class="fa-solid fa-angles-down"></i> Show More';
+    } else {
+      showMoreWrap.classList.add('hidden');
+    }
+  }
+
+  // Populate month filter from upcoming
+  function initMonthFilter() {
+    const sel = document.getElementById('monthFilter');
+    const months = Array.from(new Set(
+      shows.filter(s=>s.status==='upcoming').map(s=>monthKey(s.date))
+    ));
+    months.forEach(m=>{
+      const opt = document.createElement('option');
+      opt.value = m; opt.textContent = m;
+      sel.appendChild(opt);
+    });
+  }
+
+  // Cleanup blob URLs on unload
+  window.addEventListener('beforeunload', ()=>{
+    document.querySelectorAll('[data-ics-url]').forEach(el=>{
+      const url = el.dataset.icsUrl;
+      if (url) URL.revokeObjectURL(url);
+    });
   });
 </script>
 </body>
