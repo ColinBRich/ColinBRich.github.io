@@ -400,14 +400,13 @@
 
   const shows = [
     // Upcoming
-    { id: 'u1', date: '2025-09-25', city: 'Oxford, MS', country: 'USA', region: 'USA', venue: 'Thacker Mountain Radio Show (Powerhouse)', status: 'upcoming', doors: '', show: '6:00 PM', price: 22, link: '#', note: '' },
-    { id: 'u2', date: '2025-10-23', city: 'Oxford, MS', country: 'USA', region: 'USA', venue: "Proud Larry's", status: 'upcoming', doors: '7:00 PM', show: '9:00 PM', price: 25, link: '#', note: '' },
-    { id: 'u3', date: '2025-10-25', city: 'Oxford, MS', country: 'USA', region: 'USA', venue: 'University of Mississippi Ford Center', status: 'upcoming', doors: '', show: '', price: 24, link: '#', note: '' },
-    { id: 'u4', date: '2025-10-31', city: 'Clarksville, TN', country: 'USA', region: 'USA', venue: 'Flamingo Valley', status: 'upcoming', doors: '', show: '', price: 26, link: '#', note: '' },
-    { id: 'u5', date: '2025-11-08', city: 'St. Louis, MO', country: 'USA', region: 'USA', venue: 'TBD', status: 'upcoming', doors: '', show: '', price: 26, link: '#', note: '' },
-    { id: 'u6', date: '2025-11-09', city: 'Memphis, TN', country: 'USA', region: 'USA', venue: 'Lamplighter', status: 'upcoming', doors: '', show: '', price: 26, link: '#', note: '' },
-    { id: 'u7', date: '2025-11-15', city: 'Little Rock, AR', country: 'USA', region: 'USA', venue: 'TBD', status: 'upcoming', doors: '', show: '', price: 26, link: '#', note: '' },
-    { id: 'u8', date: '2025-11-23', city: 'Memphis, TN', country: 'USA', region: 'USA', venue: 'Haven Haus', status: 'upcoming', doors: '', show: '', price: 26, link: '#', note: '' },
+    { id: 'u1', date: '2025-09-25', city: 'Oxford, MS', country: 'USA', region: 'USA', venue: 'Thacker Mountain Radio Show (Powerhouse)', status: 'upcoming', doors: '', show: '6:00 PM', price: 22, link: '', note: '' },
+    { id: 'u2', date: '2025-10-23', city: 'Oxford, MS', country: 'USA', region: 'USA', venue: "Proud Larry's", status: 'upcoming', doors: '7:00 PM', show: '8:00 PM', price: 12, link: 'https://app.opendate.io/e/izzy-arthurs-october-23-2025-623259', note: '' },
+    { id: 'u3', date: '2025-10-25', city: 'Oxford, MS', country: 'USA', region: 'USA', venue: 'University of Mississippi Ford Center', status: 'upcoming', doors: '', show: '', price: 24, link: '', note: '' },
+    { id: 'u4', date: '2025-11-08', city: 'St. Louis, MO', country: 'USA', region: 'USA', venue: 'TBD', status: 'upcoming', doors: '', show: '', price: 26, link: '', note: '' },
+    { id: 'u5', date: '2025-11-09', city: 'Memphis, TN', country: 'USA', region: 'USA', venue: 'Lamplighter', status: 'upcoming', doors: '', show: '', price: 26, link: '', note: '' },
+    { id: 'u6', date: '2025-11-15', city: 'Little Rock, AR', country: 'USA', region: 'USA', venue: 'TBD', status: 'upcoming', doors: '', show: '', price: 26, link: '', note: '' },
+    { id: 'u7', date: '2025-11-23', city: 'Memphis, TN', country: 'USA', region: 'USA', venue: 'Haven Haus', status: 'upcoming', doors: '', show: '', price: 26, link: '', note: '' },
     //Past
   ];
 
@@ -491,13 +490,13 @@
           <div>
             <div class="text-lg font-extrabold">${s.city} <span class="text-white/60">•</span> <span class="text-white/90">${s.venue}</span></div>
             <div class="text-sm text-gray-300 mt-1">
-               Doors: ${s.doors || ' TBD'} • Show: ${s.show || ' TBD'}
+               Doors: ${s.doors || ' TBD'} • Show: ${s.show || ' TBD'} ${s.link ? `• <span class="status-upcoming">On sale</span>` : ''}
             </div>
             ${s.note ? `<div class="mt-1 tag inline-flex">${s.note}</div>` : ''}
           </div>
         </div>
         <div class="flex items-center gap-3 shrink-0">
-
+          ${s.link ? `<a href="${s.link}" class="btn btn-primary px-4 py-2 glow"><i class="fa-solid fa-ticket"></i> Tickets</a>` : ''}
           <a href="${hrefICS}" download="IzzyArthurs_${s.city.replaceAll(' ','')}_${s.date}.ics" class="btn btn-dark px-4 py-2"><i class="fa-regular fa-calendar-plus"></i> Add</a>
         </div>
       </div>
