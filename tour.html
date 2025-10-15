@@ -400,12 +400,13 @@
 
   const shows = [
     // Upcoming
-    { id: 'u1', date: '2025-10-23', city: 'Oxford, MS', country: 'USA', region: 'USA', venue: "Proud Larry's", status: 'upcoming', doors: '7:00 PM', show: '8:00 PM', price: 12, link: 'https://app.opendate.io/e/izzy-arthurs-october-23-2025-623259', note: '' },
-    { id: 'u2', date: '2025-10-25', city: 'Oxford, MS', country: 'USA', region: 'USA', venue: 'University of Mississippi Ford Center', status: 'upcoming', doors: '', show: '7:30 PM', price: 10, link: 'https://olemissboxoffice.universitytickets.com/w/event.aspx?id=1945', note: '' },
-    { id: 'u3', date: '2025-11-08', city: 'St. Louis, MO', country: 'USA', region: 'USA', venue: 'The Doorknob', status: 'upcoming', doors: '', show: '', price: 26, link: '', note: '' },
-    { id: 'u4', date: '2025-11-09', city: 'Memphis, TN', country: 'USA', region: 'USA', venue: 'Lamplighter', status: 'upcoming', doors: '', show: '', price: 26, link: '', note: '' },
-    { id: 'u5', date: '2025-11-15', city: 'Little Rock, AR', country: 'USA', region: 'USA', venue: "Vino's", status: 'upcoming', doors: '', show: '', price: 26, link: '', note: '' },
-    { id: 'u6', date: '2025-11-23', city: 'Memphis, TN', country: 'USA', region: 'USA', venue: 'Haven Haus', status: 'upcoming', doors: '', show: '', price: 26, link: '', note: '' },
+    { id: 'u1', date: '2025-10-18', city: 'Clarksville, TN', country: 'USA', region: 'USA', venue: "Revel House", status: 'upcoming', doors: 'TBD', show: 'TBD', price: 12, link: '', note: 'https://www.facebook.com/RevelHouseClarksville/' },
+    { id: 'u2', date: '2025-10-23', city: 'Oxford, MS', country: 'USA', region: 'USA', venue: "Proud Larry's", status: 'upcoming', doors: '7:00 PM', show: '8:00 PM', price: 12, link: 'https://app.opendate.io/e/izzy-arthurs-october-23-2025-623259', note: '' },
+    { id: 'u3', date: '2025-10-25', city: 'Oxford, MS', country: 'USA', region: 'USA', venue: 'University of Mississippi Ford Center', status: 'upcoming', doors: '', show: '7:30 PM', price: 10, link: 'https://olemissboxoffice.universitytickets.com/w/event.aspx?id=1945', note: '' },
+    { id: 'u4', date: '2025-11-08', city: 'St. Louis, MO', country: 'USA', region: 'USA', venue: 'The Doorknob', status: 'upcoming', doors: '', show: '', price: 26, link: '', note: '' },
+    { id: 'u5', date: '2025-11-09', city: 'Memphis, TN', country: 'USA', region: 'USA', venue: 'Lamplighter', status: 'upcoming', doors: '', show: '', price: 26, link: '', note: '' },
+    { id: 'u6', date: '2025-11-15', city: 'Little Rock, AR', country: 'USA', region: 'USA', venue: "Vino's", status: 'upcoming', doors: '', show: '', price: 26, link: '', note: '' },
+    { id: 'u7', date: '2025-11-23', city: 'Memphis, TN', country: 'USA', region: 'USA', venue: 'Haven Haus', status: 'upcoming', doors: '', show: '', price: 26, link: '', note: '' },
     //Past
     { id: 'p1', date: '2025-09-25', city: 'Oxford, MS', country: 'USA', region: 'USA', venue: 'Thacker Mountain Radio Show (Powerhouse)', status: 'past', doors: '5:30', show: '6:00 PM', price: 0, link: '', note: 'FREE SHOW' },
   ];
@@ -496,7 +497,7 @@
           </div>
         </div>
         <div class="flex items-center gap-3 shrink-0">
-          ${s.note ? `<div class="mt-1 tag inline-flex" style="font-size: 1rem;">${s.note}</div>` : ''}
+          ${s.note ? `<a href="${s.note}" class="btn btn-primary px-4 py-2 glow">Learn More</a>` : ''}
           ${s.link ? `<a href="${s.link}" class="btn btn-primary px-4 py-2 glow"><i class="fa-solid fa-ticket"></i> Tickets</a>` : ''}
           <a href="${hrefICS}" download="IzzyArthurs_${s.city.replaceAll(' ','')}_${s.date}.ics" class="btn btn-dark px-4 py-2"><i class="fa-regular fa-calendar-plus"></i> Add</a>
         </div>
@@ -505,6 +506,7 @@
     wrap.dataset.icsUrl = hrefICS;
     return wrap;
   }
+  //${s.note ? `<div class="mt-1 tag inline-flex" style="font-size: 1rem;">${s.note}</div>` : ''}
   //${s.note ? `<div class="mt-1 tag inline-flex">${s.note}</div>` : ''}
   // • <span class="status-upcoming">On sale</span>
   //<a href="${s.link || '#'}" class="btn btn-primary px-4 py-2 glow"><i class="fa-solid fa-ticket"></i> Tickets</a>
