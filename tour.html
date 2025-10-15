@@ -400,7 +400,7 @@
 
   const shows = [
     // Upcoming
-    { id: 'u1', date: '2025-10-18', city: 'Clarksville, TN', country: 'USA', region: 'USA', venue: "Revel House", status: 'upcoming', doors: 'TBD', show: 'TBD', price: 12, link: '', note: 'https://www.facebook.com/RevelHouseClarksville/' },
+    { id: 'u1', date: '2025-10-18', city: 'Clarksville, TN', country: 'USA', region: 'USA', venue: "Revel House", status: 'upcoming', doors: '7:00 PM', show: '8:00 PM', price: 10, link: '', note: 'https://www.facebook.com/RevelHouseClarksville/' },
     { id: 'u2', date: '2025-10-23', city: 'Oxford, MS', country: 'USA', region: 'USA', venue: "Proud Larry's", status: 'upcoming', doors: '7:00 PM', show: '8:00 PM', price: 12, link: 'https://app.opendate.io/e/izzy-arthurs-october-23-2025-623259', note: '' },
     { id: 'u3', date: '2025-10-25', city: 'Oxford, MS', country: 'USA', region: 'USA', venue: 'University of Mississippi Ford Center', status: 'upcoming', doors: '', show: '7:30 PM', price: 10, link: 'https://olemissboxoffice.universitytickets.com/w/event.aspx?id=1945', note: '' },
     { id: 'u4', date: '2025-11-08', city: 'St. Louis, MO', country: 'USA', region: 'USA', venue: 'The Doorknob', status: 'upcoming', doors: '', show: '', price: 26, link: '', note: '' },
@@ -491,7 +491,7 @@
           <div>
             <div class="text-lg font-extrabold">${s.city} <span class="text-white/60">•</span> <span class="text-white/90">${s.venue}</span></div>
             <div class="text-sm text-gray-300 mt-1">
-               Doors: ${s.doors || ' TBD'} • Show: ${s.show || ' TBD'} ${s.link ? `• <span class="status-upcoming">On sale</span>` : ''}
+               Doors: ${s.doors || ' TBD'} • Show: ${s.show || ' TBD'} ${s.link ? `• <span class="status-upcoming">On sale</span>` : ''} ${s.note ? `• <div class="mt-1 tag inline-flex">Tickets sold at the door</div>` : ''}
             </div>
             
           </div>
