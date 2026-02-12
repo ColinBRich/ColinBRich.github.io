@@ -43,10 +43,13 @@ h6 {
   }
 }
 
-.newbffont {
-  font-family: century-gothic, sans-serif;
-  font-weight: 700;
+.navysuitfont {
+  font-family: "arial", sans-serif;
+  font-weight: 400;
   font-style: normal;
+  font-size: 3rem;
+  color: white;
+  text-align: center;
 }
 
 .orbitingfont {
@@ -258,16 +261,28 @@ h6 {
 }
 
 .bg-orbiting {
-  background: linear-gradient(135deg, #065f46 0%, #1f2937 50%, #111827 100%);
+  background: radial-gradient(circle, #065f46 30%, #1f2937 60%, #111827 90%);
 }
 
 .bg-crystal {
-  background: linear-gradient(135deg, #1e40af 0%, #312e81 50%, #1e1b4b 100%);
+  background: linear-gradient(45deg, #b7baea 20%, #3437d8 40%, #202f96 60%, #1e1a58 90%);
 }
 
-.bg-newbestfriend {
-  background: linear-gradient(135deg, #ee3b18 0%, #c43c0f 50%, #621d05 100%);
+.bg-navysuit {
+  background: linear-gradient(135deg, #0d2675 15%, #050762e7 30%, #040441 50%);
 }
+
+.plastic-wrap {
+  background: url('../img/plastic-overlay.2.png') center/cover no-repeat;
+  opacity: 0; /* adjust to taste */
+  mix-blend-mode: screen; /* try screen, overlay, or soft-light */
+  transition: opacity 0.6s ease;
+}
+
+.plastic-wrap.active {
+  opacity: 0.15; /* adjust strength */
+}
+
 /* Upcoming shows section background transitions */
 #upcomingShowsSection {
   transition: background 1.5s ease;
@@ -282,11 +297,11 @@ h6 {
 }
 
 .bg-gradient-crystal {
-  background: linear-gradient(to bottom, #000000 0%, #1e40af 50%, #312e81 100%);
+  background: linear-gradient(to bottom, #000000 0%, #3b69de 50%, #2737a0 100%);
 }
 
-.bg-gradient-newbestfriend {
-  background: linear-gradient(to bottom, #000000 0%, #ee3b18 50%, #c43c0f 100%);
+.bg-gradient-navysuit {
+  background: linear-gradient(to bottom, #000000 10%, #0d2675 50%, #050762e7 80%);
 }
 
 .bg-size {

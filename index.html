@@ -120,49 +120,190 @@
     
     </header>
     <!-- End Header -->
-    <!-- ======= Hero Section ======= -->
-    <section id="hero" class="d-flex align-items-center">
+
+    <!-- <section id="hero" class="d-flex align-items-center">
       <div class="container d-flex flex-column align-items-center">
       </div>
-    </section>
-    <!-- End Hero -->
+    </section> -->
   
   <main>
+    <!-- Featured Single Section -->
+    <section class="relative pt-52 w-full min-h-[80vh] flex items-center justify-center text-center overflow-hidden">
+      <!-- Background Image -->
+      <img 
+          src="assets/img/navy_suit.1.jpg"
+          alt="Izzy Background"
+          class="absolute inset-0 w-full h-full object-cover"
+      >
+
+      <!-- Overlay -->
+      <div class="absolute inset-0 bg-black/30"></div>
+      <!-- <div class="absolute inset-0 bg-black/20 backdrop-blur-sm"></div> -->
+
+      <!-- Foreground Content -->
+      <div class="relative z-10 px-6">
+
+          <!-- Album Cover -->
+          <img src="assets/img/NAVY SUIT_ALBUM COVER.png"
+              alt="Album Cover"
+              class="w-72 md:w-96 mx-auto rounded-lg shadow-2xl mb-6 transition-all duration-500"
+          >
+          <!-- w-64 md:w-80 mx-auto rounded-lg shadow-2xl mb-6 -->
+          <!-- Song Title (Use PNG OR text below) -->
+
+          <!-- Option A: Text -->
+          <h2 class="text-3xl md:text-5xl font-bold text-white mb-6 tracking-wide">
+              Navy Suit
+          </h2>
+
+          <!-- Option B: PNG Title -->
+          <!--
+          <img src="images/song-title.png"
+              alt="Song Title"
+              class="w-64 md:w-96 mx-auto mb-6">
+          -->
+
+          <!-- Listen Now Button -->
+          <a href="https://open.spotify.com/artist/1bQarg3sndI9WLfOdhJhFe?si=fMn0-0AuQeOF2ZLXz35VPw"
+            target="_blank"
+            class="inline-block bg-slate-900 hover:bg-slate-1000 text-white px-8 py-3 rounded-full font-bold transition transform hover:scale-105">
+              LISTEN NOW
+          </a>
+
+      </div>
+    </section>
+
+    <!-- Upcoming Shows -->
+    <section id="upcomingShowsSection" class="py-20 bg-gradient-orbiting">
+      <div class="container mx-auto px-4">
+          <h2 class="text-3xl font-bold mb-12 text-center">UPCOMING SHOWS</h2>
+          <div class="max-w-3xl mx-auto space-y-6">
+              <!-- Show 1 -->
+              <div class="bg-black bg-opacity-50 backdrop-blur-md rounded-lg p-6 flex flex-col md:flex-row items-center md:items-start justify-between">
+                <div class="mb-4 md:mb-0 justify-items-center">
+                  <h3 class="text-xl font-bold">Haven Haus</h3>
+                  <p class="text-gray-300">Memphis, TN</p>
+                </div>
+                <div class="text-center md:text-right mb-4 md:mb-0">
+                  <p class="text-lg font-bold">March 6, 2026</p>
+                  <p class="text-gray-300">TBD</p>
+                </div>
+                <!-- <a href="tour.html" class="bg-pink-600 hover:bg-pink-700 text-white px-6 py-2 rounded-full transition">GET TICKETS</a> -->
+              </div>
+              
+              <!-- Show 2 -->
+              <div class="bg-black bg-opacity-50 backdrop-blur-md rounded-lg p-6 flex flex-col md:flex-row items-center md:items-start justify-between">
+                <div class="mb-4 md:mb-0 justify-items-center">
+                  <h3 class="text-xl font-bold">Twisted Tea Garden</h3>
+                  <p class="text-gray-300">Nashville, TN</p>
+                </div>
+                <div class="text-center md:text-right mb-4 md:mb-0">
+                  <p class="text-lg font-bold">March 7, 2026</p>
+                  <p class="text-gray-300">TBD</p>
+                </div>
+                <!-- <a href="tour.html" class="bg-pink-600 hover:bg-pink-700 text-white px-6 py-2 rounded-full transition">GET TICKETS</a> -->
+              </div>
+              
+              <!-- Show 3 -->
+              <div class="bg-black bg-opacity-50 backdrop-blur-md rounded-lg p-6 flex flex-col md:flex-row items-center md:items-start justify-between">
+                <div class="mb-4 md:mb-0 justify-items-center">
+                  <h3 class="text-xl font-bold">Mag Bar</h3>
+                  <p class="text-gray-300">Louisville, KY</p>
+                </div>
+                <div class="text-center md:text-right mb-4 md:mb-0">
+                  <p class="text-lg font-bold">March 8, 2026</p>
+                  <p class="text-gray-300">TBD</p>
+                </div>
+                <!-- <a href="tour.html" class="bg-pink-600 hover:bg-pink-700 text-white px-6 py-2 rounded-full transition">GET TICKETS</a> -->
+              </div>
+          </div>
+          
+          <div class="text-center mt-12">
+              <a href="tour.html" class="inline-block border border-white px-8 py-3 rounded-full hover:bg-white hover:text-blue-900 transition">VIEW ALL SHOWS</a>
+          </div>
+      </div>
+    </section>
+
+    <!--svg filter-->
+    <svg width='0' height='0'>
+      <filter id='grainy' x='0' y='0' width='100%' height='100%'>
+        <feTurbulence type='fractalNoise' baseFrequency='1.3' />
+        <feColorMatrix type='saturate' values='0' />
+        <feBlend in='SourceGraphic' mode='multiply' />
+      </filter>
+    </svg>
+    <!--end svg filter-->
+
+    <!-- YouTube Video Section -->
+    <section class="relative py-20 text-white overflow-hidden">
+      <!-- Background Image -->
+      <img 
+          src="assets/img/navy_suit.2.jpg" 
+          alt="Music Video Background"
+          class="absolute inset-0 w-full h-full"
+      >
+
+      <!-- Overlay -->
+      <div class="absolute inset-0 bg-black/40"></div>
+
+      <!-- Content -->
+      <div class="relative z-10 container mx-auto px-4">
+          <h2 class="text-3xl font-bold mb-12 text-center">LATEST MUSIC VIDEO</h2>
+          
+          <div class="max-w-4xl mx-auto">
+              <div class="video-container rounded-lg overflow-hidden shadow-2xl">
+                  <!-- YouTube video embed - Replace with actual video ID -->
+                  <!--<iframe id="youtubePlayer" frameborder="0" allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" title="YouTube video player" width="100%" height="100%" src=""></iframe>-->
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/NsVmfBtrAhA?si=tBN98DFKEX1bLM8A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>          
+              </div>
+              
+              <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mt-12 px-4">
+                <a href="https://www.youtube.com/watch?v=NsVmfBtrAhA"
+                   class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 sm:px-8 sm:py-3 rounded-full font-bold transition sm:w-auto text-center">
+                  <i class="fab fa-youtube mr-2"></i> WATCH ON YOUTUBE
+                </a>
+              
+                <a href="https://open.spotify.com/track/0cfvN0sM9fEcN7AinfEXvG?si=95cc03c87ae74a37"
+                   class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 sm:px-8 sm:py-3 rounded-full font-bold transition sm:w-auto text-center">
+                  <i class="fab fa-spotify mr-2"></i> LISTEN ON SPOTIFY
+                </a>
+              </div>
+          </div>
+      </div>
+    </section>
+
     <section class="bg-size pt-4 pb-20 flex items-center justify-center relative overflow-hidden">
       <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-50 z-10 pointer-events-none"></div>
         <div class="container mx-auto px-4 z-20 relative">
           <div class="album-carousel-touch album-carousel w-full max-w-3xl mx-auto h-96 relative mt-8">
-            <!-- Album 1: The Skeptic -->
+            <!-- Album 1: Navy Suit -->
+            <div class="album next" data-bg="navysuit" data-text="NAVY SUIT" data-gradient="bg-gradient-navysuit">
+              <div class="flex flex-col items-center">
+                  <img src="assets/img/NAVY SUIT_ALBUM COVER.png" class="album-cover" alt="Navy Suit">
+                  <!-- <div class="navysuitfont py-4">Navy Suit</div> -->
+                  <img src="assets/img/NAVY_SUIT_LOGO_WHITE.png" class="album-name" alt="Navy Suit Name">
+              </div>
+            </div>
+            <!-- Album 2: The Skeptic -->
             <div class="album prev" data-bg="skeptic" data-text="THE SKEPTIC" data-gradient="bg-gradient-skeptic">
               <div class="flex flex-col items-center">
                   <img src="assets/img/THE_SKEPTIC_ANCHOR_IMAGE_FINAL.png" class="album-cover" alt="The Skeptic">
                   <img src="assets/img/THE_SKEPTIC_LOGO.png" class="album-name" alt="Skeptic Name">
-                  <!--<p class="text-gray-300 mt-2">RELEASED: 2021</p>-->
               </div>
             </div>  
-            <!-- Album 2: Orbiting -->
+            <!-- Album 3: Crystal -->
+            <div class="album hidden" data-bg="crystal" data-text="CRYSTAL" data-gradient="bg-gradient-crystal">
+              <div class="flex flex-col items-center">
+                  <img src="assets/img/CRYSTAL_ANCHOR_IMAGE_FINAL.png" class="album-cover" alt="Crystal">
+                  <img src="assets/img/Crystal_logo.png" class="album-name" alt="Crystal Name">                
+              </div>
+            </div>
+            <!-- Album 4: Orbiting -->
             <div class="album active" data-bg="orbiting" data-text="ORBITING" data-gradient="bg-gradient-orbiting">
               <div class="flex flex-col items-center">
                     <img src="assets/img/ORBITING_ANCHOR_IMAGE_FINAL.png" class="album-cover" alt="Orbiting">
                     <img src="assets/img/Orbiting_LOGO.png" class="album-name" alt="Orbiting Name">              
-                  <!--<p class="text-gray-300 mt-2">RELEASED: 2022</p>-->
               </div>
-            </div>
-            <!-- Album 3: New Bestfriend -->
-            <div class="album next" data-bg="newbestfriend" data-text="NEW BEST FRIEND" data-gradient="bg-gradient-newbestfriend">
-              <div class="flex flex-col items-center">
-                  <img src="assets/img/NEW_BEST_FRIEND_ANCHOR_IMAGE FINAL.png" class="album-cover" alt="Crystal">
-                  <img src="assets/img/NEW_BEST_FRIEND_LOGO_WHITE.png" class="album-name" alt="Crystal Name">                
-                  <!--<p class="text-gray-300 mt-2">RELEASED: 2023</p>-->
-              </div>
-            </div>
-            <!-- Album 4: Crystal -->
-            <div class="album hidden" data-bg="crystal" data-text="CRYSTAL" data-gradient="bg-gradient-crystal">
-                <div class="flex flex-col items-center">
-                    <img src="assets/img/CRYSTAL_ANCHOR_IMAGE_FINAL.png" class="album-cover" alt="Crystal">
-                    <img src="assets/img/Crystal_logo.png" class="album-name" alt="Crystal Name">                
-                    <!--<p class="text-gray-300 mt-2">RELEASED: 2023</p>-->
-                </div>
             </div>
         </div>
 
@@ -192,96 +333,22 @@
         </div>        
         
       </div>
-    
-    </section>          
-    <!--svg filter-->
-    <svg width='0' height='0'>
-      <filter id='grainy' x='0' y='0' width='100%' height='100%'>
-        <feTurbulence type='fractalNoise' baseFrequency='1.3' />
-        <feColorMatrix type='saturate' values='0' />
-        <feBlend in='SourceGraphic' mode='multiply' />
-      </filter>
-    </svg>
-    <!--end svg filter-->
-    <!-- YouTube Video Section -->
-    <section class="py-20 bg-black">
-      <div class="container mx-auto px-4">
-          <h2 class="text-3xl font-bold mb-12 text-center">LATEST MUSIC VIDEO</h2>
-          
-          <div class="max-w-4xl mx-auto">
-              <div class="video-container rounded-lg overflow-hidden shadow-2xl">
-                  <!-- YouTube video embed - Replace with actual video ID -->
-                  <!--<iframe id="youtubePlayer" frameborder="0" allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" title="YouTube video player" width="100%" height="100%" src=""></iframe>-->
-                  <iframe width="560" height="315" src="https://www.youtube.com/embed/NsVmfBtrAhA?si=tBN98DFKEX1bLM8A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>          
-              </div>
-              
-              <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mt-12 px-4">
-                <a href="https://www.youtube.com/watch?v=NsVmfBtrAhA"
-                   class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 sm:px-8 sm:py-3 rounded-full font-bold transition sm:w-auto text-center">
-                  <i class="fab fa-youtube mr-2"></i> WATCH ON YOUTUBE
-                </a>
-              
-                <a href="https://open.spotify.com/track/0cfvN0sM9fEcN7AinfEXvG?si=95cc03c87ae74a37"
-                   class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 sm:px-8 sm:py-3 rounded-full font-bold transition sm:w-auto text-center">
-                  <i class="fab fa-spotify mr-2"></i> LISTEN ON SPOTIFY
-                </a>
-              </div>
-          </div>
-      </div>
-    </section>
-    <!-- Upcoming Shows -->
-    <section id="upcomingShowsSection" class="py-20 bg-gradient-orbiting">
-      <div class="container mx-auto px-4">
-          <h2 class="text-3xl font-bold mb-12 text-center">UPCOMING SHOWS</h2>
-          <div class="max-w-3xl mx-auto space-y-6">
-              <!-- Show 1 -->
-              <div class="bg-black bg-opacity-50 backdrop-blur-md rounded-lg p-6 flex flex-col md:flex-row items-center md:items-start justify-between">
-                <div class="mb-4 md:mb-0 justify-items-center">
-                  <h3 class="text-xl font-bold">Faeker's Theatre</h3>
-                  <p class="text-gray-300">Nashville, TN</p>
-                </div>
-                <div class="text-center md:text-right mb-4 md:mb-0">
-                  <p class="text-lg font-bold">January 16, 2026</p>
-                  <p class="text-gray-300">7:00 PM</p>
-                </div>
-                <a href="https://faekers.com/event/spirit-ritual_zie-sincerely_izzy-arthurs_kon/" class="bg-pink-600 hover:bg-pink-700 text-white px-6 py-2 rounded-full transition">GET TICKETS</a>
-              </div>
-              
-              <!-- Show 2 -->
-              <div class="bg-black bg-opacity-50 backdrop-blur-md rounded-lg p-6 flex flex-col md:flex-row items-center md:items-start justify-between">
-                <div class="mb-4 md:mb-0 justify-items-center">
-                  <h3 class="text-xl font-bold">Lamplighter Lounge</h3>
-                  <p class="text-gray-300">Memphis, TN</p>
-                </div>
-                <div class="text-center md:text-right mb-4 md:mb-0">
-                  <p class="text-lg font-bold">January 23, 2026</p>
-                  <p class="text-gray-300">10:00 PM</p>
-                </div>
-                <a href="tour.html" class="bg-pink-600 hover:bg-pink-700 text-white px-6 py-2 rounded-full transition">GET TICKETS</a>
-              </div>
-              
-              <!-- Show 3 -->
-              <!-- <div class="bg-black bg-opacity-50 backdrop-blur-md rounded-lg p-6 flex flex-col md:flex-row items-center md:items-start justify-between">
-                <div class="mb-4 md:mb-0 justify-items-center">
-                  <h3 class="text-xl font-bold">Lamplighter</h3>
-                  <p class="text-gray-300">Memphis, TN</p>
-                </div>
-                <div class="text-center md:text-right mb-4 md:mb-0">
-                  <p class="text-lg font-bold">November 9, 2025</p>
-                  <p class="text-gray-300">7:30 PM</p>
-                </div>
-                <a href="tour.html" class="bg-pink-600 hover:bg-pink-700 text-white px-6 py-2 rounded-full transition">GET TICKETS</a>
-              </div> -->
-          </div>
-          
-          <div class="text-center mt-12">
-              <a href="tour.html" class="inline-block border border-white px-8 py-3 rounded-full hover:bg-white hover:text-blue-900 transition">VIEW ALL SHOWS</a>
-          </div>
-      </div>
-    </section>
+    </section> 
+
      <!-- Instagram Feed Section -->
-    <section class="py-20 bg-black">
+    <section class="relative py-20 text-white overflow-hidden">
       <div class="container mx-auto px-4">
+         <!-- Background -->
+          <img 
+              src="assets/img/navy_suit.3.jpg"
+              alt="Instagram Background"
+              class="absolute inset-0 w-full h-full object-cover"
+          >
+
+          <!-- Overlay -->
+          <div class="absolute inset-0 bg-black/30"></div>
+
+           <!-- Content -->
           <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-12 gap-4 sm:gap-0 text-center sm:text-left">
               <h2 class="text-3xl font-bold">INSTAGRAM</h2>
               <a href="https://www.instagram.com/izzyarthursmusic/" target="_blank" class="flex justify-center sm:justify-start items-center text-white-500 hover:text-pink-400 transition">

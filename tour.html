@@ -42,7 +42,7 @@
     --brand-grad-b: #8b135a;
   }
   body { color: #e5e7eb; background: #0f0a1f; }
-  .site-wrap { background: linear-gradient(180deg, #0f0a1f 0%, #160f2b 40%, #1d1439 100%); min-height: 100vh; }
+  .site-wrap { background: linear-gradient(180deg, #0b0e24 60%, #111332 80%, #15173f 100%); min-height: 100vh; }
   .header-bg { background: rgba(15, 10, 31, 0.8); }
   .brand-grad { background: linear-gradient(135deg, var(--brand-grad-a) 0%, var(--brand-grad-b) 100%); }
   .search-card {
@@ -147,8 +147,19 @@
 <br><br>
 
 <!-- Hero (polished) -->
-<section class="pt-36 pb-14 brand-grad text-white">
-  <div class="max-w-7xl mx-auto px-4">
+<section class="relative pt-36 pb-14 text-white overflow-hidden">
+  <!-- Background -->
+  <img 
+      src="assets/img/navy_suit.1.jpg"
+      alt="Lyrics Background"
+      class="absolute inset-0 w-full h-full object-cover"
+    >
+
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black/50"></div>
+
+  <!-- Content -->
+  <div class="relative max-w-7xl mx-auto px-4">
     <div class="text-center">
       <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-2">Live Shows</h1>
       <div class="mt-6 text-white/70">New cities added soon. Check back for updates.</div>
@@ -400,8 +411,21 @@
 
   const shows = [
     // Upcoming
-    { id: 'u1', date: '2026-01-16', city: 'Nashville, TN', country: 'USA', region: 'USA', venue: "Faeker's Theatre", status: 'upcoming', doors: '7:00 PM', show: '8:00 PM', price: 15, link: 'https://faekers.com/event/spirit-ritual_zie-sincerely_izzy-arthurs_kon/', note: '' },
-    { id: 'u2', date: '2026-01-23', city: 'Memphis, TN', country: 'USA', region: 'USA', venue: "Lamplighter Lounge", status: 'upcoming', doors: '9:30 PM', show: '10:00 PM', price: 5, link: '', note: 'https://www.instagram.com/lamplighterloungememphis/' },
+    { id: 'u1', date: '2026-03-06', city: 'Memphis, TN', country: 'USA', region: 'USA', venue: "Haven Haus", status: 'upcoming', doors: 'TBD', show: 'TBD', price: 15, link: '', note: '' },
+    { id: 'u2', date: '2026-03-07', city: 'Nashville, TN', country: 'USA', region: 'USA', venue: "Twisted Tea Garden", status: 'upcoming', doors: 'TBD', show: 'TBD', price: 5, link: '', note: '' },
+    { id: 'u3', date: '2026-03-08', city: 'Louisville, KY', country: 'USA', region: 'USA', venue: "Mag Bar", status: 'upcoming', doors: '7:00 PM', show: 'TBD', price: 5, link: '', note: '' },
+    { id: 'u4', date: '2026-03-09', city: 'Dayton, OH', country: 'USA', region: 'USA', venue: "Hidden Gem Music Club", status: 'upcoming', doors: 'TBD', show: 'TBD', price: 5, link: '', note: '' },
+    { id: 'u5', date: '2026-03-10', city: 'Youngstown, OH', country: 'USA', region: 'USA', venue: "Westside Bowl", status: 'upcoming', doors: '6:00 PM', show: 'TBD', price: 5, link: '', note: '' },
+    { id: 'u6', date: '2026-03-11', city: 'Buffalo, NY', country: 'USA', region: 'USA', venue: "Area 54", status: 'upcoming', doors: '7:00 PM', show: 'TBD', price: 5, link: '', note: '' },
+    { id: 'u7', date: '2026-03-13', city: 'Providence, RI', country: 'USA', region: 'USA', venue: "AS220", status: 'upcoming', doors: '7:30 PM', show: 'TBD', price: 5, link: '', note: '' },
+    { id: 'u8', date: '2026-03-14', city: 'Brooklyn, NY', country: 'USA', region: 'USA', venue: "Hart Bar", status: 'upcoming', doors: '6:30 PM', show: 'TBD', price: 5, link: '', note: '' },
+    { id: 'u9', date: '2026-03-17', city: 'Raleigh, NC', country: 'USA', region: 'USA', venue: "Psych Ward Studio", status: 'upcoming', doors: 'TBD', show: 'TBD', price: 5, link: '', note: '' },
+    { id: 'u10', date: '2026-03-18', city: 'Chattanooga, TN', country: 'USA', region: 'USA', venue: "Cherry Street Tavern", status: 'upcoming', doors: 'TBD', show: 'TBD', price: 5, link: '', note: '' },
+    { id: 'u11', date: '2026-03-19', city: 'Oxford, MS', country: 'USA', region: 'USA', venue: "Proud Larry's", status: 'upcoming', doors: 'TBD', show: 'TBD', price: 5, link: '', note: '' },
+    { id: 'u12', date: '2026-03-20', city: 'Starkville, MS', country: 'USA', region: 'USA', venue: "Triangle Trading Post", status: 'upcoming', doors: '7:00 PM', show: 'TBD', price: 5, link: '', note: '' },
+    { id: 'u13', date: '2026-03-21', city: 'Jackson, MS', country: 'USA', region: 'USA', venue: "Urban Foxes", status: 'upcoming', doors: '6:00 PM', show: 'TBD', price: 5, link: '', note: '' },
+    { id: 'u14', date: '2026-03-22', city: 'Jackson, TN', country: 'USA', region: 'USA', venue: "Collective Underground", status: 'upcoming', doors: '7:00 PM', show: 'TBD', price: 5, link: '', note: '' },
+
     //Past
     { id: 'p1', date: '2025-09-25', city: 'Oxford, MS', country: 'USA', region: 'USA', venue: 'Thacker Mountain Radio Show (Powerhouse)', status: 'past', doors: '5:30', show: '6:00 PM', price: 0, link: '', note: 'FREE SHOW' },
     { id: 'p2', date: '2025-10-18', city: 'Clarksville, TN', country: 'USA', region: 'USA', venue: "Revel House", status: 'past', doors: '7:00 PM', show: '8:00 PM', price: 10, link: '', note: 'https://www.facebook.com/RevelHouseClarksville/' },
@@ -414,6 +438,8 @@
     { id: 'p9', date: '2025-11-23', city: 'Memphis, TN', country: 'USA', region: 'USA', venue: 'Haven Haus', status: 'past', doors: '7:00 PM', show: '', price: 10, link: '', note: 'https://www.instagram.com/havenhaus901/?hl=en' },
     { id: 'p10', date: '2025-11-29', city: 'Chattanooga, TN', country: 'USA', region: 'USA', venue: 'Cherry Street Tavern', status: 'past', doors: '6:00 PM', show: '9:00 PM', price: 10, link: '', note: 'https://www.instagram.com/cherrystreettavern/?hl=en' },
     { id: 'p11', date: '2025-12-19', city: 'Little Rock, AR', country: 'USA', region: 'USA', venue: "Stelly's Vineyard", status: 'past', doors: '7:00 PM', show: '7:30 PM', price: 5, link: '', note: 'https://www.instagram.com/stellysvineyard/?hl=en' },
+    { id: 'p12', date: '2026-01-16', city: 'Nashville, TN', country: 'USA', region: 'USA', venue: "Faeker's Theatre", status: 'past', doors: '7:00 PM', show: '8:00 PM', price: 15, link: 'https://faekers.com/event/spirit-ritual_zie-sincerely_izzy-arthurs_kon/', note: '' },
+    { id: 'p13', date: '2026-01-23', city: 'Memphis, TN', country: 'USA', region: 'USA', venue: "Lamplighter Lounge", status: 'past', doors: '9:30 PM', show: '10:00 PM', price: 5, link: '', note: 'https://www.instagram.com/lamplighterloungememphis/' },
   ];
 
   // State
