@@ -203,7 +203,7 @@
   }
 </style>
 
-<body id="pageBody" class="bg-skeptic text-white overflow-x-hidden">
+<body id="pageBody" class="bg-navysuit text-white overflow-x-hidden">
   <header id="header" class="fixed w-full z-50 bg-opacity-80 backdrop-blur-md bg-black">
     <div class="container-fluid d-flex justify-content-between align-items-center">
       <div class="logo">
@@ -532,7 +532,16 @@
           -->
           <!-- Song Navigation -->
           <div class="song-nav flex space-x-4 mt-20 mb-10 pb-2 overflow-x-auto fade-in" style="animation-delay: 0.3s; justify-content: center;">
-              <div class="song-nav-item active flex-shrink-0" onclick="changeSong('skeptic')">
+              <div class="song-nav-item active flex-shrink-0" onclick="changeSong('navysuit')">
+                <div class="song-card w-40 h-40 relative overflow-hidden rounded-lg shadow-lg cursor-pointer group" data-song="navysuit">
+                  <img src="assets/img/NAVY SUIT_ALBUM COVER.png" alt="Navy Suit" class="object-cover w-full h-full absolute inset-0">
+                  <div class="absolute inset-0 bg-black/40 bg-opacity-30 z-10 group-hover:bg-opacity-40 transition"></div>
+                  <!--<div class="ep-badge z-20 text-sm absolute top-2 left-2 bg-white text-black px-2 py-1 rounded">FIRST EP</div>-->
+                  <h3 class="song-title z-20 absolute bottom-2 left-2 text-white font-bold">NAVY SUIT</h3>
+                </div>
+              </div>
+
+              <div class="song-nav-item flex-shrink-0" onclick="changeSong('skeptic')">
                 <div class="song-card w-40 h-40 relative overflow-hidden rounded-lg shadow-lg cursor-pointer group" data-song="skeptic">
                   <img src="assets/img/THE_SKEPTIC_ANCHOR_IMAGE_FINAL.png" alt="The Skeptic" class="object-cover w-full h-full absolute inset-0">
                   <div class="absolute inset-0 bg-black/40 bg-opacity-30 z-10 group-hover:bg-opacity-40 transition"></div>
@@ -559,15 +568,6 @@
                 </div>
               </div>
               
-              <div class="song-nav-item flex-shrink-0" onclick="changeSong('newbestfriend')">
-                <div class="song-card w-40 h-40 relative overflow-hidden rounded-lg shadow-lg cursor-pointer group" data-song="newbestfriend">
-                  <img src="assets/img/NEW_BEST_FRIEND_ANCHOR_IMAGE FINAL.png" alt="New Best Friend" class="object-cover w-full h-full absolute inset-0">
-                  <div class="absolute inset-0 bg-black/40 bg-opacity-30 z-10 group-hover:bg-opacity-40 transition"></div>
-                  <!--<div class="ep-badge z-20 text-sm absolute top-2 left-2 bg-white text-black px-2 py-1 rounded">FIRST EP</div>-->
-                  <h3 class="song-title z-20 absolute bottom-2 left-2 text-white font-bold">NEW BEST FRIEND</h3>
-                </div>
-              </div>
-              
               <!-- Placeholder for future songs -->
               <div class="song-nav-item flex-shrink-0 opacity-50 hover:opacity-80 transition">
                   <div class="song-card w-40 h-40 bg-gray-800 rounded-lg shadow-lg overflow-hidden relative flex items-center justify-center">
@@ -583,9 +583,9 @@
           <div class="flex flex-col md:flex-row items-center md:items-start mb-8 fade-in" style="animation-delay: 0.4s; justify-content: center;">
               <!-- Song Cover -->
               <div class="w-64 h-64 mb-6 md:mb-0 md:mr-8 flex-shrink-0">
-                  <div id="songCover" class="w-full h-full bg-skeptic rounded-lg shadow-2xl overflow-hidden relative">
+                  <div id="songCover" class="w-full h-full rounded-lg shadow-2xl overflow-hidden relative">
                       <div class="absolute inset-0 flex items-center justify-center">
-                        <img id="songCoverImage" src="assets/img/THE_SKEPTIC_ANCHOR_IMAGE_FINAL.png" alt="The Skeptic" class="w-full h-full object-cover">
+                        <img id="songCoverImage" src="assets/img/NAVY SUIT_ALBUM COVER.png" alt="Navy Suit" class="w-full h-full object-cover">
                       </div>
                   </div>
               </div>
@@ -600,7 +600,7 @@
                   </div>
                   -->
                   <!--<h2 id="songTitle" class="text-3xl font-bold mb-4">THE SKEPTIC</h2>-->
-                  <img id="songTitleImage" src="assets/img/THE_SKEPTIC_LOGO.png" alt="THE SKEPTIC" class="album-name-lyrics mx-auto max-w-xs sm:max-w-sm md:max-w-md">
+                  <img id="songTitleImage" src="assets/img/NAVY_SUIT_LOGO_WHITE.png" alt="Navy Suit" class="album-name-lyrics mx-auto max-w-xs sm:max-w-sm md:max-w-md">
                   
                   <p id="songDescription" class="text-gray-300 max-w-2xl mb-6">
                      <!-- "The Skeptic" explores themes of doubt and questioning, reflecting on the journey of seeking truth in a world of uncertainty. The track's introspective lyrics invite listeners to embrace their own questions and skepticism as a path to deeper understanding.-->
@@ -626,7 +626,7 @@
           <section class="flex items-center justify-center px-4 py-12">
           <div class="bg-black/40 backdrop-blur-sm rounded-lg p-6 fade-in max-w-5xl w-full">
               <!-- Song Content Containers -->
-              <div id="skepticContent" class="song-content">
+              <div id="skepticContent" class="song-content hidden">
                   <div class="lyrics-container pr-2">
                       <div class="flex justify-between items-center mb-6">
                           <h3 class="text-2xl font-bold">LYRICS</h3>
@@ -887,7 +887,7 @@
                   </div>
               </div>
               
-              <div id="newbestfriendContent" class="song-content hidden">
+              <div id="navysuitContent" class="song-content">
                   <div class="lyrics-container pr-2">
                       <div class="flex justify-between items-center mb-6">
                           <h3 class="text-2xl font-bold">LYRICS</h3>
@@ -897,49 +897,118 @@
                           </button>
                           -->
                       </div>
-                      <pre class="lyrics-text text-gray-300 whitespace-pre-line">I want your honeysuckle summer sweet
-                        I want your winter horror
-                        I want you worshiping down on your knees
-                        The grotesque and the glamour
+                      <pre class="lyrics-text text-gray-300 whitespace-pre-line">i paid for your navy suit
+                        to be dry-cleaned at the Rainbow
+                        and it’s still here
+                        just
+                        waiting for you
+                        saying
+                        come home
+                        baby come home
                         
-                        I wanna get get get get get to know ya
-                        I wanna get get get under your skin
-                        I wanna get get get get get you closer
-                        I wanna be your new best friend
+                        baby come home
+                        put me back on
+                        ain’t nobody
+                        fittin’ better for you
                         
-                        Now all your witching hours belong to me
-                        And I’m your new favorite phantom
-                        Float down the hallways playing
-                        Hide and seek
-                        In your mind’s inner mansion
+                        baby come home
+                        put me back on
+                        ain’t nobody
+                        feel the way that i do
                         
-                        I wanna get get get get get to know ya
-                        I wanna get get get under your skin
-                        I wanna get get get get get you closer
-                        I wanna be your new best friend
+                        suffocated in the plastic
+                        frozen with Pandora watching
+                        wonder what was in his pocket
+                        i never thought to look into…
                         
-                        Ride off into the sunset 
-                        I bet you’re gonna love it there with me
-                        No idiots 
-                        No Icarus 
-                        I mean what a sleaze 
-                        Don’t you think?
-                        He was asking too much
-                        Then there’s us
-                        Oh here’s us 
-                        And we’re just at the beginning 
-                        I know i’m an optimist
-                        But i’ve got a real good feeling
-                        Do you feel it too?
-                        Do you
-                        Want to
-                        Get to know
-                        Me
+                        once was perfect
+                        drop dead magic
+                        couldn’t ditch expensive habits
                         
-                        I wanna get get get get get to know ya
-                        I wanna get get get under your skin
-                        I wanna get get get get get you closer
-                        I wanna be your new best friend                        
+                        all dressed up in love we had it
+                        tell me what do i do?
+                        
+                        i paid for your navy suit
+                        to be dry-cleaned at the Rainbow
+                        and it’s still here
+                        just
+                        waiting for you
+                        saying
+                        come home
+                        baby come home
+                        
+                        baby come home
+                        put me back on
+                        ain’t nobody
+                        fittin’ better for you
+                        
+                        baby come home
+                        put me back on
+                        ain’t nobody
+                        feel the way that i do
+                        
+                        collecting dust down here
+                        it’s madness
+                        waiting waiting
+                        life in static
+                        
+                        all dressed up in love we had it
+                        tell me what do i do?
+                        
+                        i paid for your navy suit
+                        to be dry-cleaned at the Rainbow
+                        and it’s still here
+                        just
+                        waiting for you
+                        saying
+                        come home
+                        baby come home
+                        
+                        baby come home
+                        put me back on
+                        ain’t nobody
+                        fittin’ better for you
+                        
+                        baby come home
+                        put me back on
+                        ain’t nobody
+                        feel the way that i do
+                        
+                        replace me and see (and see and see and see)
+                        get exactly what you wanted
+                        cutting all your losses
+                        
+                        replace me and see (and see and see and see)
+                        get exactly what you wanted
+                        cutting all your losses 
+                        free
+                        
+                        i paid for your navy suit
+                        to be dry-cleaned at the Rainbow
+                        and it’s still here
+                        just
+                        waiting for you
+                        saying
+                        come home
+                        baby come home (come back home)
+                        
+                        baby come home
+                        put me back on
+                        ain’t nobody
+                        fittin’ better for you
+                        
+                        baby come home (home)
+                        put me back on
+                        ain’t nobody
+                        feel the way that i do
+                        
+                        what do I do?
+                        
+                        try me on
+                        cut your loss and
+                        
+                        try me on 
+                        cut your losses                                             
                       </pre>
                   </div>
               </div>
@@ -1010,13 +1079,22 @@
   <script>
     // Song data
     const songData = {
+      navysuit: {
+            title: "Navy Suit",
+            description: "'New Best Friend' celebrates the unexpected connections that change our lives. The song captures the excitement and wonder of finding someone who instantly feels like they've always been part of your story, and the joy of building a meaningful friendship.",
+            bgClass: "bg-navysuit",
+            coverImage: "assets/img/NAVY SUIT_ALBUM COVER.png",
+            titleImage: "assets/img/NAVY_SUIT_LOGO_WHITE.png",
+            trackNumber: "TRACK 1",
+            bgGradient: "linear-gradient(135deg, #0d2675 15%, #050762e7 30%, #040441 50%)"
+        },
         skeptic: {
             title: "The Skeptic",
             description: "'The Skeptic' explores themes of doubt and questioning, reflecting on the journey of seeking truth in a world of uncertainty. The track's introspective lyrics invite listeners to embrace their own questions and skepticism as a path to deeper understanding.",
             bgClass: "bg-skeptic",
             coverImage: "assets/img/THE_SKEPTIC_ANCHOR_IMAGE_FINAL.png",
             titleImage: "assets/img/THE_SKEPTIC_LOGO.png",
-            trackNumber: "TRACK 1",
+            trackNumber: "TRACK 2",
             bgGradient: "linear-gradient(135deg, #db2777 0%, #7e22ce 50%, #4c1d95 100%)"
         },
         orbiting: {
@@ -1025,8 +1103,8 @@
             bgClass: "bg-orbiting",
             coverImage: "assets/img/ORBITING_ANCHOR_IMAGE_FINAL.png",
             titleImage: "assets/img/Orbiting_LOGO.png",
-            trackNumber: "TRACK 2",
-            bgGradient: "linear-gradient(135deg, #065f46 0%, #1f2937 50%, #111827 100%)"
+            trackNumber: "TRACK 3",
+            bgGradient: "linear-gradient(135deg, #065f46 20%, #1f2937 40%, #111827 90%)"
         },
         crystal: {
             title: "Crystal",
@@ -1034,17 +1112,8 @@
             bgClass: "bg-crystal",
             coverImage: "assets/img/CRYSTAL_ANCHOR_IMAGE_FINAL.png",
             titleImage: "assets/img/Crystal_logo.png",
-            trackNumber: "TRACK 3",
-            bgGradient: "linear-gradient(135deg, #1e40af 0%, #312e81 50%, #1e1b4b 100%)"
-        },
-        newbestfriend: {
-            title: "New Best Friend",
-            description: "'New Best Friend' celebrates the unexpected connections that change our lives. The song captures the excitement and wonder of finding someone who instantly feels like they've always been part of your story, and the joy of building a meaningful friendship.",
-            bgClass: "bg-newbestfriend",
-            coverImage: "assets/img/NEW_BEST_FRIEND_ANCHOR_IMAGE FINAL.png",
-            titleImage: "assets/img/NEW_BEST_FRIEND_LOGO_WHITE.png",
             trackNumber: "TRACK 4",
-            bgGradient: "linear-gradient(135deg, #f97316 0%, #c2410c 50%, #7c2d12 100%)"
+            bgGradient: "linear-gradient(135deg, #abbdea 15%, #3b69de 30%, #2737a0 40%, #1e1a58 90%)"
         },
         "coming-soon": {
             title: "COMING SOON",
@@ -1144,7 +1213,7 @@
       const contactLinks = document.querySelectorAll('a[href="contact.html"], a[href="#contact"]');
       const contactModal = document.getElementById('contactModal');
       const closeContactModal = document.getElementById('closeContactModal');
-      const contactForm = document.getElementById('contactForm');
+      //const contactForm = document.getElementById('contactForm');
       
       // Open modal when contact link is clicked
       contactLinks.forEach(link => {
@@ -1170,23 +1239,23 @@
       });
       
       // Handle form submission
-      contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
+      // contactForm.addEventListener('submit', function(e) {
+      //   e.preventDefault();
         
-        // Get form values
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const comments = document.getElementById('comments').value;
+      //   // Get form values
+      //   const name = document.getElementById('name').value;
+      //   const email = document.getElementById('email').value;
+      //   const comments = document.getElementById('comments').value;
         
-        // Here you would typically send the data to a server
-        // For now, we'll just show a success message
-        alert(`Thank you, ${name}! Your message has been received. We'll get back to you soon.`);
+      //   // Here you would typically send the data to a server
+      //   // For now, we'll just show a success message
+      //   alert(`Thank you, ${name}! Your message has been received. We'll get back to you soon.`);
         
-        // Reset form and close modal
-        contactForm.reset();
-        contactModal.classList.add('hidden');
-        document.body.style.overflow = '';
-      });
+      //   // Reset form and close modal
+      //   contactForm.reset();
+      //   contactModal.classList.add('hidden');
+      //   document.body.style.overflow = '';
+      // });
   
     });
   </script>
